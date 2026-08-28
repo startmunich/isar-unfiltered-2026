@@ -1,0 +1,35 @@
+This is the ISAR Unfiltered scholarship landing page — a one-page scrollytelling
+site. Full creative brief is in /docs/brief.md — read it before generating any
+section.
+
+Tech stack (do not substitute or add alternatives):
+- Next.js 15 App Router, TypeScript, Tailwind CSS
+- GSAP + ScrollTrigger for all scroll-driven animation
+- Lenis for smooth scroll, synced to ScrollTrigger via gsap.ticker (not scrollerProxy)
+- React Bits components (installed via jsrepo CLI) for text effects
+- SplitType for custom text splitting GSAP animations
+- Motion for React only for simple non-scroll in-view fades
+
+Brand colors — use exactly, no tints/gradients:
+- Deep green: #02462e (primary)
+- Yellow: #fec700 (accent/CTA)
+
+Tone of all copy: direct, human, confident, slightly provocative, unpolished
+in a good way. Never use: visionary, ecosystem, disruptive, thought leaders,
+empowering, innovative, game-changing.
+
+Visual direction: reference zajno.com's scroll craft but bolder — larger type,
+harder color blocks, grainy B&W photography, occasional off-grid rotation.
+Type should overflow/crop its container on purpose in hero and CTA sections.
+
+Build one section at a time. Each section is its own component. Add
+ScrollTrigger pinning/scrubbing as the last step for each section, after
+the static layout is confirmed.
+
+Always respect prefers-reduced-motion with a static fallback.
+Always lazy-init ScrollTriggers per section, never all on initial mount.
+
+Fonts via Adobe kit https://use.typekit.net/lpk6vqu.css — do not self-host:
+- Display: "zuume" (400/700/900)
+- Body: "helvetica-neue-lt-pro"
+- Condensed labels: "helvetica-neue-lt-pro-cond"
