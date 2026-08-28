@@ -16,7 +16,12 @@ export function MobileFeatures() {
         <h2 className="m-features-title">Three beats. No theatre.</h2>
       </MobileReveal>
 
-      <div className="m-features-track" role="region" aria-label="Features">
+      <div
+        className="m-features-track"
+        role="region"
+        aria-label="Features"
+        data-lenis-prevent
+      >
         {slides.map((slide, i) => (
           <article key={slide.n} className="m-features-slide">
             <div className="m-features-slide-media">

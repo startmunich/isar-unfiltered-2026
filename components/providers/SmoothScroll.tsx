@@ -9,7 +9,11 @@ const MOBILE_QUERY = "(max-width: 1023px)";
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<LenisRef>(null);
   const [reduced, setReduced] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia(MOBILE_QUERY).matches
+      : false,
+  );
 
   useEffect(() => {
     setReduced(prefersReducedMotion());
@@ -24,7 +28,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (reduced) return;
+    // Mobile uses native scroll so horizontal carousels stay swipeable.
+    if (reduced || isMobile) return;
 
     const onScroll = () => ScrollTrigger.update();
 
@@ -58,9 +63,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       gsap.ticker.remove(update);
       window.removeEventListener("load", refresh);
     };
-  }, [reduced]);
+  }, [reduced, isMobile]);
 
-  if (reduced) {
+  if (reduced || isMobile) {
     return <>{children}</>;
   }
 
@@ -70,10 +75,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       ref={lenisRef}
       options={{
         autoRaf: false,
-        lerp: isMobile ? 0.15 : 0.1,
-        syncTouch: isMobile,
-        touchMultiplier: isMobile ? 1.1 : 1,
-        smoothWheel: !isMobile,
+        lerp: 0.1,
+        syncTouch: false,
+        smoothWheel: true,
         anchors: true,
       }}
     >

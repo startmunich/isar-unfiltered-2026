@@ -15,7 +15,12 @@ export function MobileLookback({ items }: { items: Iu25Item[] }) {
         <p className="m-lookback-hint">Swipe the gallery</p>
       </MobileReveal>
 
-      <div className="m-lookback-track" role="region" aria-label="Last time gallery">
+      <div
+        className="m-lookback-track"
+        role="region"
+        aria-label="Last time gallery"
+        data-lenis-prevent
+      >
         {items.map((item) => (
           <div key={item.image} className="m-lookback-slide">
             <Image

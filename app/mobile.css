@@ -151,7 +151,7 @@
     align-items: stretch;
     justify-content: center;
     padding: var(--m-section-gap) var(--m-section-pad)
-      clamp(6.5rem, 20vh, 9rem);
+      clamp(7.5rem, 22vh, 10.5rem);
     background: var(--color-green);
     color: var(--color-yellow);
     overflow: hidden;
@@ -161,14 +161,14 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -2%;
+    bottom: clamp(2.75rem, 9vh, 4.5rem);
     width: 100%;
     height: auto;
     margin: 0;
     line-height: 0;
     opacity: 1;
     pointer-events: none;
-    transform: translateY(-6%);
+    transform: none;
   }
 
   .m-program-intro-bg img {
@@ -450,7 +450,7 @@
     padding: var(--m-section-gap) 0 var(--m-section-gap);
     background: var(--color-green);
     color: var(--color-yellow);
-    overflow: hidden;
+    overflow: clip;
   }
 
   .m-features-head {
@@ -481,11 +481,18 @@
     gap: 0.85rem;
     padding: 0 var(--m-section-pad);
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--m-section-pad);
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-x pan-y;
+    touch-action: pan-x;
     max-width: 100%;
+    scrollbar-width: none;
+  }
+
+  .m-features-track::-webkit-scrollbar {
+    display: none;
   }
 
   .m-features-slide {
@@ -657,11 +664,18 @@
     gap: 0.75rem;
     padding: 0 var(--m-section-pad);
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--m-section-pad);
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-x pan-y;
+    touch-action: pan-x;
     max-width: 100%;
+    scrollbar-width: none;
+  }
+
+  .m-lookback-track::-webkit-scrollbar {
+    display: none;
   }
 
   .m-lookback-slide {
