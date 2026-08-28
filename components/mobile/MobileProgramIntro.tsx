@@ -25,10 +25,10 @@ export function MobileProgramIntro() {
       <div className="m-program-intro-bg" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/program-font-cropped.png"
+          src="/images/program-mobile.png"
           alt=""
-          width={1847}
-          height={175}
+          width={1920}
+          height={409}
         />
       </div>
 

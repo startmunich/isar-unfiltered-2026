@@ -151,7 +151,7 @@
     align-items: stretch;
     justify-content: center;
     padding: var(--m-section-gap) var(--m-section-pad)
-      clamp(7.5rem, 22vh, 10.5rem);
+      clamp(5.5rem, 18vw, 7.5rem);
     background: var(--color-green);
     color: var(--color-yellow);
     overflow: hidden;
@@ -161,7 +161,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: clamp(2.75rem, 9vh, 4.5rem);
+    bottom: 0;
     width: 100%;
     height: auto;
     margin: 0;
@@ -175,6 +175,7 @@
     display: block;
     width: 100%;
     height: auto;
+    vertical-align: bottom;
   }
 
   .m-program-intro-inner {
