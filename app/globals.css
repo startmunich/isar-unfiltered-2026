@@ -1180,18 +1180,6 @@ html[data-menu-show="false"] .menu-trigger {
   background: var(--color-yellow);
 }
 
-.program-days-eyebrow {
-  margin: 0;
-  padding: clamp(1rem, 2.5vw, 1.5rem) var(--frame-inset) 0;
-  font-family: var(--font-cond);
-  font-size: clamp(0.72rem, 1.2vw, 0.85rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-green);
-  opacity: 0.85;
-}
-
 .apply-intro {
   display: flex;
   align-items: center;

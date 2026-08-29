@@ -1,7 +1,7 @@
 export const copy = {
   apply: {
     headline: "APPLICATIONS ARE OPEN.",
-    sub: "No company required. No funding required. Just show us what you're building.",
+    sub: "You don't need a company or funding — just show us what you're building.",
     cta: "Apply",
     small: "Application form loading soon. Check back shortly.",
     start: "Start application",
@@ -36,7 +36,7 @@ export const copy = {
       dare: {
         kicker: "Apply today",
         title: ["NO", "PITCH", "ZONE"] as const,
-        body: "100 tickets. Four days in Munich. Substance over status, builders over talkers. No company required, no funding required. Just show us what you're actually working on.",
+        body: "We're bringing 100 carefully chosen people to Munich for four days. You don't need a company or a funding round — we care what you're actually working on, what problem you're chasing, and why you care enough to do something about it.",
       },
     },
     lookback: {
@@ -67,20 +67,20 @@ export const copy = {
       a: {
         left: {
           headline: "Not your typical founder club.",
-          body: "ISAR Unfiltered cuts through the BS around entrepreneurship and gets to what actually matters: solving real problems, building real things, putting them out into the world. Builders, researchers, creators, operators, students. If you're doing something real, you belong here. See what last year looked like.",
+          body: "ISAR Unfiltered cuts through the BS around entrepreneurship and gets to what actually matters: solving real problems, building real things, and putting them out into the world. If you're doing something real — whether you're a builder, researcher, creator, operator, or student — you belong here.",
           cta: "IU2025",
           href: "#iu2025",
         },
         right: {
           headline: "IT'S ALL ABOUT BUILDING HERE",
-          body: "You didn't start because it was easy. You started because something annoyed you, because you were curious, because you got tired of waiting for someone else to fix it.",
+          body: "You didn't start because it was easy. You started because something annoyed you, because you were curious, or because you got tired of waiting for someone else to fix it.",
           cta: "Apply today",
         },
       },
       b: {
         left: {
           headline: "Built to be useful",
-          body: "Four days of conversations, ideas and experiences designed to move things forward.",
+          body: "Four days of conversations, ideas, and experiences designed to move things forward.",
           cta: "Program",
           href: "#program",
         },
@@ -95,17 +95,17 @@ export const copy = {
     features: [
       {
         title: ["The 1:1", "That Matters"] as const,
-        body: "Small circles. Real conversations. People you'll want to talk to again.",
+        body: "Small groups where you can ask real questions, trade experience, and meet people you might actually stay in touch with.",
         n: "1/3",
       },
       {
-        title: ["The", "Conversations", "That Matter"] as const,
-        body: "No founder theatre. Just honest stories from people who've done it.",
+        title: ["The Stories", "Behind It"] as const,
+        body: "Hear how people got through the messy parts of building — the calls, failures, and lessons that never make the polished version.",
         n: "2/3",
       },
       {
         title: ["The Ideas", "That Move"] as const,
-        body: "Less sitting and listening. More thinking, asking, and doing.",
+        body: "Sessions meant to push your thinking, open a new angle, and send you home with something useful.",
         n: "3/3",
       },
     ],
@@ -114,19 +114,19 @@ export const copy = {
     prefix: "4 DAYS OF",
     words: [
       "THINKING",
-      "BUILDING",
-      "CREATING",
-      "SHIPPING",
-      "DOING",
+      "MEETING",
+      "QUESTIONING",
+      "CONNECTING",
+      "LISTENING",
+      "EXCHANGING",
     ] as const,
     title: "PROGRAM",
   },
-  programDaysEyebrow: "IU25 · LAST TIME, UNFILTERED",
   programDays: [
     {
       n: "1",
       date: "27/09",
-      body: "Evening kickoff. Meet the cohort, get the briefing, pick up merch. Straight talk. No pitch zone.",
+      body: "Evening kickoff: meet the cohort, get the briefing, pick up merch — straight talk, no pitch zone.",
       slots: [
         {
           when: "Sun 27 Sep, evening",
@@ -183,7 +183,7 @@ export const copy = {
     {
       n: "4",
       date: "30/09",
-      body: "Last day at Bits & Pretzels. No separate ISAR block. You're in the room with the cohort. Use the day.",
+      body: "Last day at Bits & Pretzels — no separate ISAR block. You're in the room with the cohort. Use the day.",
       slots: [
         {
           when: "Wed 30 Sep",

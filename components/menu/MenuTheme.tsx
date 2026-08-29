@@ -3,8 +3,11 @@
 import { useEffect } from "react";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
 
-function desktopRoot() {
-  return document.querySelector<HTMLElement>(".desktop-only");
+function frameRoot() {
+  const mobile = window.matchMedia("(max-width: 1023px)").matches;
+  return document.querySelector<HTMLElement>(
+    mobile ? ".mobile-only" : ".desktop-only",
+  );
 }
 
 function isShown(el: HTMLElement) {
@@ -33,7 +36,7 @@ function themeFromPoint(x: number, y: number) {
 }
 
 function themeAtProbe() {
-  const root = desktopRoot();
+  const root = frameRoot();
   const trigger = document.querySelector(".menu-trigger");
   const r = trigger?.getBoundingClientRect();
   const underMenu = themeFromPoint(
@@ -68,7 +71,7 @@ function chromeShouldShow() {
   if (isMobileChrome()) return true;
   if (document.documentElement.dataset.menuOpen === "true") return true;
 
-  const root = desktopRoot();
+  const root = frameRoot();
   if (!root) return true;
 
   const vh = window.innerHeight;
@@ -124,9 +127,7 @@ export function MenuTheme() {
     };
 
     const apply = (velocity = 0) => {
-      if (!isMobileChrome()) {
-        document.documentElement.dataset.menuOn = themeAtProbe();
-      }
+      document.documentElement.dataset.menuOn = themeAtProbe();
       setShown(chromeShouldShow(), velocity);
     };
 

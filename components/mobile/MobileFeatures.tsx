@@ -13,7 +13,7 @@ export function MobileFeatures() {
     <section data-frame-theme="photo" className="m-features">
       <MobileReveal className="m-features-head">
         <p className="m-features-kicker">What you get</p>
-        <h2 className="m-features-title">Three beats. No theatre.</h2>
+        <h2 className="m-features-title">Three formats that actually matter.</h2>
       </MobileReveal>
 
       <div

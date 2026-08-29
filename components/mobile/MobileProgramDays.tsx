@@ -19,10 +19,6 @@ export function MobileProgramDays() {
 
   return (
     <section data-frame-theme="yellow" className="m-program-days">
-      <div className="m-program-days-head">
-        <p className="m-program-days-kicker">{copy.programDaysEyebrow}</p>
-      </div>
-
       <div className="m-program-days-list">
         {days.map((day, i) => {
           const open = openIndex === i;
