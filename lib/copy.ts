@@ -1,7 +1,7 @@
 export const copy = {
   apply: {
     headline: "APPLICATIONS ARE OPEN.",
-    sub: "You don't need a company or funding — just show us what you're building.",
+    sub: "You don't need a company or funding. Just show us what you're building.",
     cta: "Apply",
     small: "Application form loading soon. Check back shortly.",
     start: "Start application",
@@ -36,7 +36,7 @@ export const copy = {
       dare: {
         kicker: "Apply today",
         title: ["NO", "PITCH", "ZONE"] as const,
-        body: "We're bringing 100 carefully chosen people to Munich for four days. You don't need a company or a funding round — we care what you're actually working on, what problem you're chasing, and why you care enough to do something about it.",
+        body: "We're bringing 100 carefully chosen people to Munich for four days. You don't need a company or a funding round. We care what you're actually working on, what problem you're chasing, and why you care enough to do something about it.",
       },
     },
     lookback: {
@@ -67,7 +67,7 @@ export const copy = {
       a: {
         left: {
           headline: "Not your typical founder club.",
-          body: "ISAR Unfiltered cuts through the BS around entrepreneurship and gets to what actually matters: solving real problems, building real things, and putting them out into the world. If you're doing something real — whether you're a builder, researcher, creator, operator, or student — you belong here.",
+          body: "ISAR Unfiltered cuts through the BS around entrepreneurship and gets to what actually matters: solving real problems, building real things, and putting them out into the world. If you're doing something real, whether you're a builder, researcher, creator, operator, or student, you belong here.",
           cta: "IU2025",
           href: "#iu2025",
         },
@@ -100,7 +100,7 @@ export const copy = {
       },
       {
         title: ["The Stories", "Behind It"] as const,
-        body: "Hear how people got through the messy parts of building — the calls, failures, and lessons that never make the polished version.",
+        body: "Hear how people got through the messy parts of building: the calls, failures, and lessons that never make the polished version.",
         n: "2/3",
       },
       {
@@ -126,7 +126,7 @@ export const copy = {
     {
       n: "1",
       date: "27/09",
-      body: "Evening kickoff: meet the cohort, get the briefing, pick up merch — straight talk, no pitch zone.",
+      body: "Evening kickoff: meet the cohort, get the briefing, pick up merch. Straight talk, no pitch zone.",
       slots: [
         {
           when: "Sun 27 Sep, evening",
@@ -183,7 +183,7 @@ export const copy = {
     {
       n: "4",
       date: "30/09",
-      body: "Last day at Bits & Pretzels — no separate ISAR block. You're in the room with the cohort. Use the day.",
+      body: "Last day at Bits & Pretzels. No separate ISAR block. You're in the room with the cohort. Use the day.",
       slots: [
         {
           when: "Wed 30 Sep",
