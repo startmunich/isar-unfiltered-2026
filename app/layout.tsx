@@ -50,24 +50,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      {
-        url: "/icons/favicon-32-light.png",
-        sizes: "32x32",
-        type: "image/png",
-        media: "(prefers-color-scheme: light)",
-      },
+      { url: "/icons/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" },
       {
         url: "/icons/favicon-32-dark.png",
         sizes: "32x32",
         type: "image/png",
         media: "(prefers-color-scheme: dark)",
       },
-      {
-        url: "/icons/icon-192-light.png",
-        sizes: "192x192",
-        type: "image/png",
-        media: "(prefers-color-scheme: light)",
-      },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
       {
         url: "/icons/icon-192-dark.png",
         sizes: "192x192",
@@ -112,6 +103,8 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="https://use.typekit.net/lpk6vqu.css" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icons/favicon-48.png" type="image/png" sizes="48x48" />
         <link
           rel="apple-touch-icon"
           href="/icons/apple-touch-icon.png"

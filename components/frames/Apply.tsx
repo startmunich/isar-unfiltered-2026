@@ -19,30 +19,6 @@ declare global {
 }
 
 const TALLY_SCRIPT = "https://tally.so/widgets/embed.js";
-const TALLY_FALLBACK_HEIGHT = 560;
-
-/** Floor so short pages fill leftover viewport under the guide — desktop only. */
-function getTallyMinHeight(wrap?: HTMLElement | null) {
-  if (typeof window === "undefined") return TALLY_FALLBACK_HEIGHT;
-
-  const isMobile = window.matchMedia("(max-width: 1023px)").matches;
-  if (isMobile) {
-    return Math.round(Math.max(520, window.innerHeight * 0.45));
-  }
-
-  const section = wrap?.closest<HTMLElement>(".apply-form");
-  const guide = section?.querySelector<HTMLElement>(".apply-form-guide");
-  const styles = section ? getComputedStyle(section) : null;
-  const padY =
-    (styles ? parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom) : 0) ||
-    80;
-  const guideH = guide?.offsetHeight ?? 160;
-  const gap = 16;
-
-  return Math.round(
-    Math.max(360, window.innerHeight - padY - guideH - gap),
-  );
-}
 
 function loadTallyEmbeds() {
   if (typeof window.Tally !== "undefined") {
@@ -136,23 +112,7 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
   useEffect(() => {
     if (!embedSrc) return;
 
-    const syncFloor = () => {
-      const floor = getTallyMinHeight(wrapRef.current);
-      const iframeEl = embedRef.current;
-      const wrapEl = wrapRef.current;
-      if (!iframeEl || !wrapEl) return;
-
-      const current = parseFloat(iframeEl.style.height) || 0;
-      const next = Math.max(current, floor);
-      iframeEl.style.minHeight = `${floor}px`;
-      wrapEl.style.minHeight = `${floor}px`;
-      iframeEl.style.height = `${next}px`;
-      wrapEl.style.height = `${next}px`;
-    };
-
     loadTallyEmbeds();
-    syncFloor();
-    const raf = window.requestAnimationFrame(syncFloor);
 
     let layoutRefreshTimer: number | undefined;
 
@@ -167,16 +127,14 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
     const applyHeight = (height: number) => {
       const iframeEl = embedRef.current;
       const wrapEl = wrapRef.current;
-      if (!iframeEl || !Number.isFinite(height) || height < 200) return;
+      if (!iframeEl || !Number.isFinite(height) || height < 120) return;
 
-      const minH = getTallyMinHeight(wrapEl);
-      const floored = Math.max(Math.ceil(height), minH);
-      const next = `${floored}px`;
+      const next = `${Math.ceil(height)}px`;
       iframeEl.style.height = next;
-      iframeEl.style.minHeight = `${minH}px`;
+      iframeEl.style.minHeight = next;
       if (wrapEl) {
-        wrapEl.style.height = next;
-        wrapEl.style.minHeight = `${minH}px`;
+        wrapEl.style.height = "auto";
+        wrapEl.style.minHeight = next;
       }
       scheduleLayoutRefresh();
     };
@@ -195,20 +153,14 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
         tallyEvent === "Tally.FormPageView"
       ) {
         loadTallyEmbeds();
-        window.setTimeout(() => {
-          loadTallyEmbeds();
-          scheduleLayoutRefresh();
-        }, 120);
+        window.setTimeout(loadTallyEmbeds, 120);
       }
     };
 
     window.addEventListener("message", onMessage);
-    window.addEventListener("resize", syncFloor);
     return () => {
-      window.cancelAnimationFrame(raf);
       if (layoutRefreshTimer) window.clearTimeout(layoutRefreshTimer);
       window.removeEventListener("message", onMessage);
-      window.removeEventListener("resize", syncFloor);
     };
   }, [embedSrc]);
 
@@ -283,7 +235,6 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
                 ref={embedRef}
                 data-tally-src={embedSrc}
                 width="100%"
-                height={TALLY_FALLBACK_HEIGHT}
                 frameBorder={0}
                 marginHeight={0}
                 marginWidth={0}
