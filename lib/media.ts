@@ -124,7 +124,7 @@ export const landingSlides = [
   },
   {
     src: "/images/hero/Hero-images_IU26_05.jpg",
-    alt: "ISAR Unfiltered — faces from the cohort",
+    alt: "ISAR Unfiltered — faces from the room",
   },
   {
     src: "/images/hero/Hero-images_IU26_06.jpg",

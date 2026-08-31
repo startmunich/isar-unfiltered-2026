@@ -64,6 +64,15 @@ export function Closer() {
               {copy.rev2.closer.apply}
             </TextLink>
           </nav>
+          <p className="closer-credit">
+            <a
+              href="https://www.wide-communication.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Website by WIDE
+            </a>
+          </p>
         </div>
       </div>
     </section>

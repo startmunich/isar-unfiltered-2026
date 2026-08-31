@@ -122,10 +122,8 @@ export const copy = {
     ] as const,
     title: "PROGRAM",
     blurb:
-      "ISAR Unfiltered is four days in Munich for people who build. No pitch theatre. A curated cohort, hard conversations, and the rooms where the next generation of founders actually meets.",
+      "ISAR Unfiltered is four days in Munich for people who are already doing something about a problem they care about. We curate the room so you meet others who are doing the same.",
   },
-  microCircles:
-    "Small groups, real questions, timed sessions. Sit with people already in the arena.",
   programDays: [
     {
       n: "0",
@@ -190,7 +188,7 @@ export const copy = {
     {
       n: "3",
       date: "30/09",
-      body: "Oktoberfest day with the cohort. Table Captains keep the tables moving. Show up, stay curious, make it count.",
+      body: "Oktoberfest day with the 100 people in the room. Table Captains keep the tables moving. Show up, stay curious, make it count.",
       slots: [
         {
           when: "Wed 30 Sep, 10:00–12:00",

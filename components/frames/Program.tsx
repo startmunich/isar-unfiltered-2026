@@ -97,7 +97,6 @@ export function ProgramDays() {
       data-frame-theme="yellow"
       className="program-days frame frame-yellow js-snap"
     >
-      <p className="program-days-micro">{copy.microCircles}</p>
       <AccordionGallery
         items={items}
         defaultIndex={-1}

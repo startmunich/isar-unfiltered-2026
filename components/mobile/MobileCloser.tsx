@@ -47,6 +47,16 @@ export function MobileCloser() {
           LI
         </a>
       </nav>
+
+      <p className="m-closer-credit">
+        <a
+          href="https://www.wide-communication.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Website by WIDE
+        </a>
+      </p>
     </section>
   );
 }

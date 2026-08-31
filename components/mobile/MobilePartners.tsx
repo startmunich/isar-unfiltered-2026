@@ -13,10 +13,10 @@ export function MobilePartners({ logos }: { logos: LogoItem[] }) {
       <div className="m-partners-loop">
         <LogoLoop
           logos={logos}
-          speed={90}
+          speed={42}
           direction="left"
-          logoHeight={40}
-          gap={44}
+          logoHeight={36}
+          gap={40}
           hoverSpeed={0}
           scaleOnHover={false}
           fadeOut
@@ -25,10 +25,10 @@ export function MobilePartners({ logos }: { logos: LogoItem[] }) {
         />
         <LogoLoop
           logos={logos}
-          speed={90}
+          speed={42}
           direction="right"
-          logoHeight={40}
-          gap={44}
+          logoHeight={36}
+          gap={40}
           hoverSpeed={0}
           scaleOnHover={false}
           fadeOut
