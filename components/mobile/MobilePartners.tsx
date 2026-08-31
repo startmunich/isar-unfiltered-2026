@@ -6,7 +6,7 @@ import { MobileReveal } from "@/components/mobile/MobileReveal";
 
 export function MobilePartners({ logos }: { logos: LogoItem[] }) {
   return (
-    <section data-frame-theme="green" className="m-partners">
+    <section id="partners" data-frame-theme="green" className="m-partners">
       <MobileReveal>
         <h2 className="m-partners-title">{copy.rev2.partners.title}</h2>
       </MobileReveal>

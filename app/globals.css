@@ -1084,9 +1084,12 @@ html[data-menu-show="false"] .menu-trigger {
 .program-tease {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
   overflow: hidden;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
 
 .program-tease-bg {
@@ -1152,6 +1155,18 @@ html[data-menu-show="false"] .menu-trigger {
   overflow: hidden;
 }
 
+.program-tease-blurb {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+  line-height: 1.45;
+  color: var(--color-yellow);
+}
+
 @media (max-width: 1023px), (prefers-reduced-motion: reduce) {
   .features-motion {
     display: none;
@@ -1178,6 +1193,19 @@ html[data-menu-show="false"] .menu-trigger {
 .program-days {
   padding: 0;
   background: var(--color-yellow);
+  display: flex;
+  flex-direction: column;
+}
+
+.program-days-micro {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.85rem var(--frame-inset);
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  line-height: 1.4;
+  color: var(--color-green);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-green) 25%, transparent);
 }
 
 .apply-intro {
@@ -1412,6 +1440,8 @@ html[data-menu-show="false"] .menu-trigger {
 }
 
 .program-days .accordion-gallery {
+  flex: 1 1 auto;
+  min-height: 0;
   height: 100%;
 }
 

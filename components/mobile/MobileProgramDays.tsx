@@ -19,6 +19,7 @@ export function MobileProgramDays() {
 
   return (
     <section data-frame-theme="yellow" className="m-program-days">
+      <p className="m-program-days-micro">{copy.microCircles}</p>
       <div className="m-program-days-list">
         {days.map((day, i) => {
           const open = openIndex === i;
@@ -49,19 +50,21 @@ export function MobileProgramDays() {
                 </div>
 
                 <div className="m-day-card-body">
-                  <p className="m-day-card-summary">{day.body}</p>
-                  {open ? (
-                    <ul className="m-day-card-slots">
-                      {day.slots.map((slot) => (
-                        <li key={`${slot.when}-${slot.format}`}>
-                          <p className="m-day-slot-when">{slot.when}</p>
-                          <p className="m-day-slot-where">{slot.where}</p>
-                          <p className="m-day-slot-format">{slot.format}</p>
-                          <p className="m-day-slot-length">{slot.length}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
+                  <div className="m-day-card-layout">
+                    <p className="m-day-card-summary">{day.body}</p>
+                    {open ? (
+                      <ul className="m-day-card-slots">
+                        {day.slots.map((slot) => (
+                          <li key={`${slot.when}-${slot.format}`}>
+                            <p className="m-day-slot-format">{slot.format}</p>
+                            <p className="m-day-slot-when">{slot.when}</p>
+                            <p className="m-day-slot-where">{slot.where}</p>
+                            <p className="m-day-slot-length">{slot.length}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
                 </div>
               </article>
             </MobileReveal>

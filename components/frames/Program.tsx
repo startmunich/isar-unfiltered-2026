@@ -60,6 +60,7 @@ export function ProgramIntro() {
           )}
         </span>
       </p>
+      <p className="program-tease-blurb">{tease.blurb}</p>
     </section>
   );
 }
@@ -96,6 +97,7 @@ export function ProgramDays() {
       data-frame-theme="yellow"
       className="program-days frame frame-yellow js-snap"
     >
+      <p className="program-days-micro">{copy.microCircles}</p>
       <AccordionGallery
         items={items}
         defaultIndex={-1}

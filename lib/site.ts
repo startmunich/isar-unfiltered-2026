@@ -2,7 +2,7 @@ import { copy } from "@/lib/copy";
 
 export const goLive = {
   hiddenPaths: ["/program", "/mentors"] as const,
-  hiddenMenuHrefs: ["/program", "/mentors", "/#landing"],
+  hiddenMenuHrefs: ["/mentors", "/#landing"],
   hiddenFooterHrefs: ["/program", "/mentors"],
 };
 

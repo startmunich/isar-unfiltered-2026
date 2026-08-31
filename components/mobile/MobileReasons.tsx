@@ -7,7 +7,7 @@ import { MobileReveal } from "@/components/mobile/MobileReveal";
 export function MobileReasons() {
   return (
     <div>
-      <section data-frame-theme="photo" className="m-reasons">
+      <section id="rtb" data-frame-theme="photo" className="m-reasons">
         <div className="m-reasons-photo">
           <Image
             src={photos.rtbPitch.src}

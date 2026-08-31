@@ -277,11 +277,13 @@ export default function AccordionGallery({
               }}
               aria-hidden={!isActive}
             >
-              <span className="ag-open-date">{item.date}</span>
-              <span className="ag-open-title">
-                DAY <em>{item.n}</em>
+              <span className="ag-open-main">
+                <span className="ag-open-date">{item.date}</span>
+                <span className="ag-open-title">
+                  DAY <em>{item.n}</em>
+                </span>
+                <span className="ag-open-body">{item.body}</span>
               </span>
-              <span className="ag-open-body">{item.body}</span>
               {item.slots?.length ? (
                 <span className="ag-open-slots">
                   {item.slots.map((slot) => (

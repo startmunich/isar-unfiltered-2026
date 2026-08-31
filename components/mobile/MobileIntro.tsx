@@ -35,7 +35,7 @@ const beats = [
 
 export function MobileIntro() {
   return (
-    <section className="m-intro">
+    <section id="intro" className="m-intro">
       {beats.map((beat, i) => (
         <article
           key={beat.headline}

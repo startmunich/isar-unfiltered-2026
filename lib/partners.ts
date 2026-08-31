@@ -1,12 +1,12 @@
 import type { ImageLogoItem, LogoItem } from "@/components/react-bits/LogoLoop";
 
 /**
- * Partner marks for the green belts — yellow-on-green via LogoLoop CSS filter.
- * Files live in public/images/partners/ (processed from REV3/Partner Logos).
+ * Partner marks for the green belts — light/white assets only on #02462e.
+ * Files live in public/images/partners/ (from REV3/Partner Logos).
  */
 export const partnerLogos: ImageLogoItem[] = [
   {
-    src: "/images/partners/bits-and-pretzels.svg",
+    src: "/images/partners/bits-and-pretzels.png",
     alt: "Bits & Pretzels",
     title: "Bits & Pretzels",
     href: "https://www.bitsandpretzels.com/",
@@ -28,18 +28,6 @@ export const partnerLogos: ImageLogoItem[] = [
     alt: "10x Founders",
     title: "10x Founders",
     href: "https://www.10xfounders.com/",
-  },
-  {
-    src: "/images/partners/ewor.png",
-    alt: "EWOR",
-    title: "EWOR",
-    href: "https://www.ewor.com/",
-  },
-  {
-    src: "/images/partners/eth-ai-center.png",
-    alt: "ETH AI Center",
-    title: "ETH AI Center",
-    href: "https://ai.ethz.ch/",
   },
 ];
 

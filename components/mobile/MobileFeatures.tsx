@@ -10,7 +10,7 @@ const slidePhotos = [photos.feature1, photos.feature2, photos.feature3] as const
 
 export function MobileFeatures() {
   return (
-    <section data-frame-theme="photo" className="m-features">
+    <section id="features" data-frame-theme="photo" className="m-features">
       <MobileReveal className="m-features-head">
         <p className="m-features-kicker">What you get</p>
         <h2 className="m-features-title">Three formats that actually matter.</h2>

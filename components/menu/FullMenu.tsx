@@ -9,6 +9,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type MouseEvent,
 } from "react";
 import { applyHref, mobileApplyFormHref } from "@/lib/copy";
 import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
@@ -38,12 +39,83 @@ export function MenuProvider({ children }: { children: React.ReactNode }) {
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 }
 
+function frameRoot(profile: "mobile" | "desktop") {
+  return document.querySelector<HTMLElement>(
+    profile === "mobile" ? ".mobile-only" : ".desktop-only",
+  );
+}
+
+function hashFromHref(href: string) {
+  if (href.startsWith("#")) return href;
+  if (href.startsWith("/#")) return href.slice(1);
+  try {
+    const url = new URL(href, window.location.origin);
+    if (url.pathname === "/" && url.hash) return url.hash;
+  } catch {
+    /* ignore */
+  }
+  return null;
+}
+
 export function FullMenu() {
   const { open, setOpen } = useMenu();
   const profile = useViewportProfile();
   const applyLink = profile === "mobile" ? mobileApplyFormHref : applyHref;
   const close = useCallback(() => setOpen(false), [setOpen]);
   const lenis = useLenis();
+
+  const scrollToInPage = useCallback(
+    (href: string) => {
+      const hash = hashFromHref(href);
+      if (!hash || !profile) return false;
+
+      const root = frameRoot(profile);
+      if (!root) return false;
+
+      // Features live inside the Intro pin on desktop; jump into that corridor.
+      if (
+        hash === "#features" &&
+        profile === "desktop" &&
+        !prefersReducedMotion()
+      ) {
+        const intro = root.querySelector<HTMLElement>("#intro");
+        if (intro) {
+          const top = intro.offsetTop + intro.offsetHeight * 0.35;
+          close();
+          window.setTimeout(() => {
+            if (lenis) lenis.scrollTo(top, { immediate: false });
+            else window.scrollTo({ top, behavior: "smooth" });
+          }, 40);
+          return true;
+        }
+      }
+
+      const el = root.querySelector<HTMLElement>(hash);
+      if (!el) return false;
+
+      close();
+      window.setTimeout(() => {
+        if (profile === "desktop" && lenis) {
+          lenis.scrollTo(el, { offset: 0, immediate: false });
+        } else {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 40);
+      return true;
+    },
+    [close, lenis, profile],
+  );
+
+  const onNavClick = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+      if (scrollToInPage(href)) {
+        e.preventDefault();
+        return;
+      }
+      close();
+    },
+    [close, scrollToInPage],
+  );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -91,17 +163,20 @@ export function FullMenu() {
       aria-label="Menu"
     >
       <nav className="menu-overlay-nav">
-        {publicMenuItems().map((item) => (
-          <a
-            key={item.href}
-            data-menu-link
-            href={item.label === "Apply" ? applyLink : item.href}
-            onClick={close}
-            className="menu-overlay-link"
-          >
-            {item.label}
-          </a>
-        ))}
+        {publicMenuItems().map((item) => {
+          const href = item.label === "Apply" ? applyLink : item.href;
+          return (
+            <a
+              key={item.href}
+              data-menu-link
+              href={href}
+              onClick={(e) => onNavClick(e, href)}
+              className="menu-overlay-link"
+            >
+              {item.label}
+            </a>
+          );
+        })}
       </nav>
       <div className="menu-overlay-mark" aria-hidden>
         <Image

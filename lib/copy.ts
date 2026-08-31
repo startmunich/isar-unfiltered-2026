@@ -54,7 +54,7 @@ export const copy = {
       { label: "Landing", href: "/#landing" },
       { label: "Intro", href: "/#intro" },
       { label: "Features", href: "/#features" },
-      { label: "Program", href: "/program" },
+      { label: "Program", href: "/#program" },
       { label: "Mentors", href: "/mentors" },
       { label: "Why", href: "/#rtb" },
       { label: "Last time", href: "/#iu2025" },
@@ -121,44 +121,50 @@ export const copy = {
       "EXCHANGING",
     ] as const,
     title: "PROGRAM",
+    blurb:
+      "ISAR Unfiltered is four days in Munich for people who build. No pitch theatre. A curated cohort, hard conversations, and the rooms where the next generation of founders actually meets.",
   },
+  microCircles:
+    "Small groups, real questions, timed sessions. Sit with people already in the arena.",
   programDays: [
     {
-      n: "1",
+      n: "0",
       date: "27/09",
-      body: "Evening kickoff: meet the cohort, get the briefing, pick up merch. Straight talk, no pitch zone.",
+      body: "Pre-event evening. The point is simple: get to know other builders in your generation before the days kick off. Merch, briefing, no pitch zone.",
       slots: [
         {
           when: "Sun 27 Sep, evening",
-          where: "A Munich space we're still locking in",
+          where: "TBA",
           format: "Intro to ISAR Unfiltered",
           length: "3h",
         },
       ],
     },
     {
-      n: "2",
+      n: "1",
       date: "28/09",
-      body: "First full day on the Bits grounds. Welcome from the Bits team, then micro circles with people already building.",
+      body: "First full day on the Bits grounds. Connect to the ecosystem and get inspired by the people building now.",
       slots: [
         {
           when: "Mon 28 Sep, midday",
           where: "Room on the Bits & Pretzels grounds",
-          format: "Intro to Bits & Pretzels",
+          format:
+            "Inspiration Sessions and Unfiltered Conversations with some of the biggest Speakers",
           length: "1–1.5h",
         },
         {
           when: "Mon 28 Sep, afternoon",
           where: "Across the Bits & Pretzels grounds",
-          format: "Micro Circles, slot 1",
+          format:
+            "Micro Circles, slot 1, with the best founders and operators onsite",
           length: "3h",
         },
       ],
     },
     {
-      n: "3",
+      n: "2",
       date: "29/09",
-      body: "Morning movement or coffee, afternoon circles, then an open evening where Munich founders and students actually meet.",
+      body: "Keep plugging into the ecosystem. More circles, more inspiration, then the Munich student scene gathers for real.",
       slots: [
         {
           when: "Tue 29 Sep, morning",
@@ -169,27 +175,28 @@ export const copy = {
         {
           when: "Tue 29 Sep, afternoon",
           where: "Across the Bits & Pretzels grounds",
-          format: "Micro Circles, slot 2",
+          format:
+            "Micro Circles, slot 2, with the best founders and operators onsite",
           length: "3h",
         },
         {
           when: "Tue 29 Sep, evening",
           where: "A cool community & cultural hub in the heart of Munich",
-          format: "Open night: founders meet students",
+          format: "Munich student ecosystem gathering",
           length: "open evening",
         },
       ],
     },
     {
-      n: "4",
+      n: "3",
       date: "30/09",
-      body: "Last day at Bits & Pretzels. No separate ISAR block. You're in the room with the cohort. Use the day.",
+      body: "Oktoberfest day with the cohort. Table Captains keep the tables moving. Show up, stay curious, make it count.",
       slots: [
         {
-          when: "Wed 30 Sep",
-          where: "Bits & Pretzels grounds",
-          format: "Conference day with the cohort",
-          length: "full day",
+          when: "Wed 30 Sep, 10:00–12:00",
+          where: "Oktoberfest tent",
+          format: "Table Captains at Oktoberfest",
+          length: "2h",
         },
       ],
     },

@@ -5,7 +5,7 @@ import { MobileReveal } from "@/components/mobile/MobileReveal";
 
 export function MobileLookback({ items }: { items: Iu25Item[] }) {
   return (
-    <section data-frame-theme="green" className="m-lookback">
+    <section id="iu2025" data-frame-theme="green" className="m-lookback">
       <MobileReveal className="m-lookback-head">
         <h2 className="m-lookback-title">
           {copy.rev2.lookback.title.map((line) => (

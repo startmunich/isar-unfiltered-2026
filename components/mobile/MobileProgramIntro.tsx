@@ -21,7 +21,7 @@ export function MobileProgramIntro() {
   }, []);
 
   return (
-    <section data-frame-theme="green" className="m-program-intro">
+    <section id="program" data-frame-theme="green" className="m-program-intro">
       <div className="m-program-intro-bg" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -58,6 +58,7 @@ export function MobileProgramIntro() {
             )}
           </span>
         </div>
+        <p className="m-program-intro-blurb">{tease.blurb}</p>
         <TextLink href={mobileApplyFormHref} arrow="yellow" className="m-program-intro-cta">
           {copy.rev2.applyToday}
         </TextLink>
