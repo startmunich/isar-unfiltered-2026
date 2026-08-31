@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { copy } from "@/lib/copy";
 import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
@@ -48,9 +49,15 @@ export function MobileCloser() {
         </a>
       </nav>
 
+      <p className="m-closer-legal">
+        <Link href="/impressum">Impressum</Link>
+        <span aria-hidden> · </span>
+        <Link href="/datenschutz">Datenschutz</Link>
+      </p>
+
       <p className="m-closer-credit">
         <a
-          href="https://www.wide-communication.com/"
+          href={copy.footer.wide}
           target="_blank"
           rel="noreferrer noopener"
         >

@@ -8,26 +8,43 @@ import {
   ParkedWordmark,
 } from "@/components/menu/FullMenu";
 import { MenuTheme } from "@/components/menu/MenuTheme";
+import { ConsentProvider } from "@/components/consent/ConsentProvider";
+import { ConsentBanner } from "@/components/consent/ConsentBanner";
+import { Analytics } from "@/components/consent/Analytics";
+import { absoluteUrl, SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 import "./mobile.css";
 
+const title = "ISAR Unfiltered 2026";
+const description =
+  "Bits & Pretzels Scholarship powered by ISAR Unfiltered. Munich, 27–30 Sep 2026. 100 tickets. No strings. Show us what you're building.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://isar-unfiltered-2026.vercel.app",
-  ),
-  title: "ISAR Unfiltered 2026",
-  description:
-    "Bits & Pretzels Scholarship powered by ISAR Unfiltered. Munich, 27–30 Sep 2026. 100 tickets. No strings. Show us what you're building.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: title,
+    template: "%s · ISAR Unfiltered",
+  },
+  description,
+  alternates: {
+    canonical: absoluteUrl("/"),
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "ISAR Unfiltered 2026",
+    title,
     description:
       "Bits & Pretzels Scholarship powered by ISAR Unfiltered. Munich, 27–30 Sep 2026. Show us what you're building.",
     type: "website",
     locale: "en_GB",
+    url: absoluteUrl("/"),
+    siteName: "ISAR Unfiltered",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ISAR Unfiltered 2026",
+    title,
     description:
       "Bits & Pretzels Scholarship powered by ISAR Unfiltered. Munich, 27–30 Sep 2026.",
   },
@@ -59,7 +76,9 @@ export const metadata: Metadata = {
       },
     ],
     shortcut: "/favicon.ico",
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   appleWebApp: {
     capable: true,
@@ -100,16 +119,20 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-yellow font-body text-green antialiased">
-        <GrainOverlay />
-        <SmoothScroll>
-          <MenuProvider>
-            <MenuTrigger />
-            <ParkedWordmark />
-            <FullMenu />
-            <MenuTheme />
-            {children}
-          </MenuProvider>
-        </SmoothScroll>
+        <ConsentProvider>
+          <GrainOverlay />
+          <SmoothScroll>
+            <MenuProvider>
+              <MenuTrigger />
+              <ParkedWordmark />
+              <FullMenu />
+              <MenuTheme />
+              {children}
+            </MenuProvider>
+          </SmoothScroll>
+          <ConsentBanner />
+          <Analytics />
+        </ConsentProvider>
       </body>
     </html>
   );

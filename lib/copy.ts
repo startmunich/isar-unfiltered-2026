@@ -15,8 +15,11 @@ export const copy = {
     formActiveHint: "Scroll outside to move on.",
   },
   footer: {
-    instagram: "https://www.instagram.com/isar.unfiltered/",
-    linkedin: "https://www.linkedin.com/showcase/isar-unfiltered/",
+    instagram:
+      "https://www.instagram.com/isar.unfiltered/?utm_source=isarunfiltered&utm_medium=website&utm_campaign=iu26&utm_content=footer_instagram",
+    linkedin:
+      "https://www.linkedin.com/showcase/isar-unfiltered/?utm_source=isarunfiltered&utm_medium=website&utm_campaign=iu26&utm_content=footer_linkedin",
+    wide: "https://www.wide-communication.com/?utm_source=isarunfiltered&utm_medium=website&utm_campaign=iu26&utm_content=footer_wide",
     pages: [
       { label: "Intro", href: "/#intro" },
       { label: "Features", href: "/#features" },

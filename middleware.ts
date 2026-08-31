@@ -6,7 +6,7 @@ const HIDDEN_PATHS = new Set(["/program", "/mentors"]);
 
 export function middleware(request: NextRequest) {
   if (HIDDEN_PATHS.has(request.nextUrl.pathname)) {
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL("/", request.url), 308);
   }
 }
 
