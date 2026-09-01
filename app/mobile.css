@@ -663,7 +663,7 @@
   }
 
   .m-partners .logo-loop__item img[alt="EWOR"] {
-    height: calc(var(--logo-loop-logoHeight) * 0.55);
+    height: calc(var(--logo-loop-logoHeight) * 0.62);
   }
 
   .mobile-only .logo-loop__link:active {

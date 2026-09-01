@@ -1814,7 +1814,7 @@ html[data-menu-show="false"] .menu-trigger {
 }
 
 .partners .logo-loop__item img[alt="EWOR"] {
-  height: calc(var(--logo-loop-logoHeight) * 0.55);
+  height: calc(var(--logo-loop-logoHeight) * 0.62);
 }
 
 .closer {

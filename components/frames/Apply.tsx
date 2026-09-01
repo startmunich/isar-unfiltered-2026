@@ -19,8 +19,25 @@ declare global {
 }
 
 const TALLY_SCRIPT = "https://tally.so/widgets/embed.js";
-const TALLY_FALLBACK_HEIGHT = 560;
+const TALLY_FALLBACK_HEIGHT = 640;
 const MOBILE_EMBED_MIN_HEIGHT = 380;
+
+/** Desktop floor: fill viewport below guide without CSS flex-grow on the wrap. */
+function getDesktopEmbedMinHeight(wrap?: HTMLElement | null) {
+  if (typeof window === "undefined") return TALLY_FALLBACK_HEIGHT;
+
+  const section = wrap?.closest<HTMLElement>(".apply-form");
+  const guide = section?.querySelector<HTMLElement>(".apply-form-guide");
+  const styles = section ? getComputedStyle(section) : null;
+  const padY =
+    (styles
+      ? parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom)
+      : 0) || 80;
+  const guideH = guide?.offsetHeight ?? 180;
+  const gap = 24;
+
+  return Math.round(Math.max(520, window.innerHeight - padY - guideH - gap));
+}
 
 function loadTallyEmbeds() {
   if (typeof window.Tally !== "undefined") {
@@ -116,6 +133,23 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
 
     loadTallyEmbeds();
 
+    const syncDesktopFloor = () => {
+      if (window.matchMedia("(max-width: 1023px)").matches) return;
+      const iframeEl = embedRef.current;
+      const wrapEl = wrapRef.current;
+      if (!iframeEl || !wrapEl) return;
+
+      const floor = getDesktopEmbedMinHeight(wrapEl);
+      const current = parseFloat(iframeEl.style.height) || TALLY_FALLBACK_HEIGHT;
+      const next = Math.max(current, floor);
+      const px = `${Math.ceil(next)}px`;
+      iframeEl.style.height = px;
+      iframeEl.style.minHeight = px;
+      wrapEl.style.height = px;
+      wrapEl.style.minHeight = px;
+      scheduleLayoutRefresh();
+    };
+
     let layoutRefreshTimer: number | undefined;
 
     const scheduleLayoutRefresh = () => {
@@ -132,9 +166,10 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
       if (!iframeEl || !Number.isFinite(height) || height < 120) return;
 
       const isMobile = window.matchMedia("(max-width: 1023px)").matches;
-      const resolved = isMobile
-        ? Math.max(height, MOBILE_EMBED_MIN_HEIGHT)
-        : height;
+      const floor = isMobile
+        ? MOBILE_EMBED_MIN_HEIGHT
+        : getDesktopEmbedMinHeight(wrapEl);
+      const resolved = Math.max(height, floor);
       const next = `${Math.ceil(resolved)}px`;
       iframeEl.style.height = next;
       iframeEl.style.minHeight = next;
@@ -166,9 +201,14 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
     };
 
     window.addEventListener("message", onMessage);
+    window.addEventListener("resize", syncDesktopFloor);
+    syncDesktopFloor();
+    const raf = window.requestAnimationFrame(syncDesktopFloor);
     return () => {
+      window.cancelAnimationFrame(raf);
       if (layoutRefreshTimer) window.clearTimeout(layoutRefreshTimer);
       window.removeEventListener("message", onMessage);
+      window.removeEventListener("resize", syncDesktopFloor);
     };
   }, [embedSrc]);
 
