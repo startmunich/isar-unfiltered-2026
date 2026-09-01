@@ -1188,7 +1188,7 @@ html[data-menu-show="false"] .menu-trigger {
 
 .program-days {
   padding: 0;
-  background: var(--color-yellow);
+  background: var(--color-green);
 }
 
 .apply-intro {
@@ -1262,10 +1262,11 @@ html[data-menu-show="false"] .menu-trigger {
 .apply-page-embed-wrap {
   flex: 1 1 auto;
   width: 100%;
-  max-width: min(72rem, 100%);
-  margin-inline: auto;
-  padding: 0 var(--frame-inset)
-    max(clamp(1rem, 3vh, 2rem), env(safe-area-inset-bottom));
+  margin-inline: 0;
+  padding: 0 max(var(--frame-inset), env(safe-area-inset-right))
+    max(clamp(1rem, 3vh, 2rem), env(safe-area-inset-bottom))
+    max(var(--frame-inset), env(safe-area-inset-left));
+  background: var(--color-green);
 }
 
 .apply-page-embed {

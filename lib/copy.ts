@@ -27,7 +27,7 @@ export const copy = {
       { label: "Last time", href: "/#iu2025" },
       { label: "Partners", href: "/#partners" },
       { label: "Mentors", href: "/mentors" },
-      { label: "Program", href: "/program" },
+      { label: "Program", href: "/#program" },
     ],
   },
   rev2: {

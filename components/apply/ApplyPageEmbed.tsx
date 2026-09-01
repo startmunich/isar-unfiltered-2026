@@ -18,7 +18,7 @@ declare global {
 }
 
 const TALLY_SCRIPT = "https://tally.so/widgets/embed.js";
-const TALLY_FALLBACK_HEIGHT = 640;
+const TALLY_FALLBACK_HEIGHT = 900;
 
 function loadTallyEmbeds() {
   if (typeof window.Tally !== "undefined") {

@@ -12,7 +12,7 @@ import { SNAP_REFRESH_EVENT } from "@/lib/snap";
  * All DOM queries scoped to `.desktop-only` — mobile tree shares duplicate IDs.
  *
  * Free-scroll corridor (snap at edges only):
- * - #intro: pinned GSAP scrub timeline
+ * - #intro: pinned manifesto beats + feature sliders
  */
 function easeInOutCubic(t: number) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -55,7 +55,7 @@ function getIntroBounds(ctx: SnapContext): ZoneBounds | null {
 }
 
 /** Free Lenis scroll inside a zone; snap only at true edges. */
-function shouldFreeScrollZone(
+function shouldFreeScrollIntro(
   scrollY: number,
   deltaY: number,
   bounds: ZoneBounds | null,
@@ -80,14 +80,6 @@ function shouldFreeScrollZone(
   if (deltaY < 0 && scrollY <= top + CORRIDOR_EDGE) return false;
   if (deltaY > 0 && scrollY >= exit - CORRIDOR_EDGE) return false;
   return true;
-}
-
-function shouldFreeScrollIntro(
-  scrollY: number,
-  deltaY: number,
-  ctx: SnapContext,
-) {
-  return shouldFreeScrollZone(scrollY, deltaY, getIntroBounds(ctx));
 }
 
 function collectRests(ctx: SnapContext) {
@@ -225,7 +217,9 @@ export function SnapSections() {
 
           if (sideways) return false;
 
-          if (shouldFreeScrollIntro(lenis.scroll, data.deltaY, ctx)) {
+          if (
+            shouldFreeScrollIntro(lenis.scroll, data.deltaY, getIntroBounds(ctx))
+          ) {
             return true;
           }
 
@@ -271,7 +265,9 @@ export function SnapSections() {
             return;
           }
 
-          if (shouldFreeScrollIntro(lenis.scroll, deltaY, ctx)) {
+          if (
+            shouldFreeScrollIntro(lenis.scroll, deltaY, getIntroBounds(ctx))
+          ) {
             return;
           }
 

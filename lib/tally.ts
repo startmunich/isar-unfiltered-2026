@@ -17,9 +17,9 @@ export function normalizeTallyEmbedUrl(baseUrl: string): string {
 
 export function getTallyEmbedSrc(baseUrl: string): string {
   const url = new URL(baseUrl);
+  url.searchParams.set("alignLeft", "1");
+  url.searchParams.set("transparentBackground", "1");
   url.searchParams.set("dynamicHeight", "1");
-  url.searchParams.set("hideTitle", "1");
-  // Centered (not alignLeft) — avoids uneven left/right space inside Tally.
   return url.toString();
 }
 

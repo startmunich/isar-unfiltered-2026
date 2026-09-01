@@ -13,14 +13,15 @@ export function DesktopHome({ partnerLogos }: { partnerLogos: LogoItem[] }) {
   return (
     <>
       <Landing />
-      <ProgramIntro />
-      <ProgramDays />
       <ApplyIntro />
       <Intro />
       <Features />
+      <ProgramIntro />
+      <ProgramDays />
       <Reasons />
       <Partners logos={partnerLogos} />
       <Lookback />
+      <ApplyIntro variant="bottom" />
       <Closer />
     </>
   );

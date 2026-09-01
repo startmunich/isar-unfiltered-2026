@@ -94,8 +94,8 @@ export function ProgramDays() {
 
   return (
     <section
-      data-frame-theme="yellow"
-      className="program-days frame frame-yellow js-snap"
+      data-frame-theme="green"
+      className="program-days frame frame-green js-snap"
     >
       <AccordionGallery
         items={items}

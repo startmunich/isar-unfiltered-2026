@@ -1,10 +1,16 @@
 import { copy, applyPageHref } from "@/lib/copy";
 import { TextLink } from "@/components/ui/TextLink";
 
-export function ApplyIntro() {
+type ApplyIntroProps = {
+  variant?: "primary" | "bottom";
+};
+
+export function ApplyIntro({ variant = "primary" }: ApplyIntroProps) {
+  const sectionId = variant === "bottom" ? "apply-bottom" : "apply";
+
   return (
     <section
-      id="apply"
+      id={sectionId}
       data-frame-theme="yellow"
       className="apply-intro frame frame-yellow js-snap"
     >
