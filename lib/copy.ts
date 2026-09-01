@@ -204,8 +204,14 @@ export const copy = {
   ],
 } as const;
 
-export const applyPageHref =
-  process.env.NEXT_PUBLIC_APPLY_URL || "/apply";
+/** Dedicated apply form route. Ignores legacy hash env values like #apply. */
+function resolveApplyPageHref(): string {
+  const env = process.env.NEXT_PUBLIC_APPLY_URL?.trim();
+  if (!env || env.startsWith("#")) return "/apply";
+  return env;
+}
+
+export const applyPageHref = resolveApplyPageHref();
 
 /** @deprecated Use applyPageHref */
 export const applyHref = applyPageHref;
