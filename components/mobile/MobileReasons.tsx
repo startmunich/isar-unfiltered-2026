@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { mobileApplyFormHref, copy } from "@/lib/copy";
+import { applyPageHref, copy } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
@@ -25,7 +25,7 @@ export function MobileReasons() {
 
         <MobileReveal className="m-reasons-green">
           <p className="m-reasons-body">{copy.rev2.rtb.dare.body}</p>
-          <TextLink href={mobileApplyFormHref} arrow="yellow" className="m-reasons-cta">
+          <TextLink href={applyPageHref} newTab arrow="yellow" className="m-reasons-cta">
             {copy.rev2.rtb.dare.kicker}
           </TextLink>
           <p className="m-reasons-meta">

@@ -2,7 +2,7 @@ import { Landing } from "@/components/frames/Landing";
 import { Intro } from "@/components/frames/Intro";
 import { Features } from "@/components/frames/Features";
 import { ProgramIntro, ProgramDays } from "@/components/frames/Program";
-import { ApplyIntro, ApplyForm } from "@/components/frames/Apply";
+import { ApplyIntro } from "@/components/frames/Apply";
 import { Reasons } from "@/components/frames/Reasons";
 import { Partners } from "@/components/frames/Partners";
 import { Lookback } from "@/components/frames/Lookback";
@@ -16,7 +16,6 @@ export function DesktopHome({ partnerLogos }: { partnerLogos: LogoItem[] }) {
       <ProgramIntro />
       <ProgramDays />
       <ApplyIntro />
-      <ApplyForm tree="desktop" />
       <Intro />
       <Features />
       <Reasons />

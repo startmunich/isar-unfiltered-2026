@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { applyHref, copy } from "@/lib/copy";
+import { applyPageHref, copy } from "@/lib/copy";
 import { landingSlides } from "@/lib/media";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { TextLink } from "@/components/ui/TextLink";
@@ -50,7 +50,7 @@ export function Landing() {
             <span className="block font-bold">{copy.rev2.city}</span>
             <span className="block">{copy.rev2.dates}</span>
           </p>
-          <TextLink href={applyHref} arrow="green" className="landing-cta">
+          <TextLink href={applyPageHref} newTab arrow="green" className="landing-cta">
             {copy.rev2.applyToday}
           </TextLink>
         </div>

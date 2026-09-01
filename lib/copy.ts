@@ -62,7 +62,7 @@ export const copy = {
       { label: "Why", href: "/#rtb" },
       { label: "Last time", href: "/#iu2025" },
       { label: "Partners", href: "/#partners" },
-      { label: "Apply", href: "/#apply" },
+      { label: "Apply", href: "/apply" },
     ],
   },
   rev3: {
@@ -204,8 +204,8 @@ export const copy = {
   ],
 } as const;
 
-export const applyHref =
-  process.env.NEXT_PUBLIC_APPLY_URL || "#apply";
+export const applyPageHref =
+  process.env.NEXT_PUBLIC_APPLY_URL || "/apply";
 
-export const applyFormHref = "#apply-form";
-export const mobileApplyFormHref = "#m-apply-form";
+/** @deprecated Use applyPageHref */
+export const applyHref = applyPageHref;

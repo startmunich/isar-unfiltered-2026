@@ -13,6 +13,7 @@ type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
   icon?: boolean;
   arrow?: ArrowTone;
+  newTab?: boolean;
 };
 
 export function TextLink({
@@ -20,17 +21,19 @@ export function TextLink({
   children,
   icon = true,
   arrow = "black",
+  newTab = false,
   className = "",
   ...rest
 }: TextLinkProps) {
   const external = href.startsWith("http");
+  const openNewTab = newTab || external;
   const src = ARROW_SRC[arrow];
 
   return (
     <a
       href={href}
       className={`text-link ${className}`.trim()}
-      {...(external
+      {...(openNewTab
         ? { target: "_blank", rel: "noopener noreferrer" }
         : {})}
       {...rest}

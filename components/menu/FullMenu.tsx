@@ -11,7 +11,7 @@ import {
   useState,
   type MouseEvent,
 } from "react";
-import { applyHref, mobileApplyFormHref } from "@/lib/copy";
+import { applyPageHref } from "@/lib/copy";
 import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
 import { publicMenuItems } from "@/lib/site";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
@@ -60,7 +60,6 @@ function hashFromHref(href: string) {
 export function FullMenu() {
   const { open, setOpen } = useMenu();
   const profile = useViewportProfile();
-  const applyLink = profile === "mobile" ? mobileApplyFormHref : applyHref;
   const close = useCallback(() => setOpen(false), [setOpen]);
   const lenis = useLenis();
 
@@ -164,13 +163,23 @@ export function FullMenu() {
     >
       <nav className="menu-overlay-nav">
         {publicMenuItems().map((item) => {
-          const href = item.label === "Apply" ? applyLink : item.href;
+          const isApply = item.label === "Apply";
+          const href = isApply ? applyPageHref : item.href;
           return (
             <a
               key={item.href}
               data-menu-link
               href={href}
-              onClick={(e) => onNavClick(e, href)}
+              {...(isApply
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              onClick={(e) => {
+                if (isApply) {
+                  close();
+                  return;
+                }
+                onNavClick(e, href);
+              }}
               className="menu-overlay-link"
             >
               {item.label}

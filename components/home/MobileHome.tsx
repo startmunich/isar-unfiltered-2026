@@ -1,4 +1,3 @@
-import { ApplyForm } from "@/components/frames/Apply";
 import type { LogoItem } from "@/components/react-bits/LogoLoop";
 import type { Iu25Item } from "@/lib/iu25";
 import { MobileCloser } from "@/components/mobile/MobileCloser";
@@ -22,7 +21,6 @@ export function MobileHome({ partnerLogos, lookbackItems }: MobileHomeProps) {
       <MobileLanding />
       <MobileProgramIntro />
       <MobileProgramDays />
-      <ApplyForm tree="mobile" />
       <MobileIntro />
       <MobileFeatures />
       <MobileReasons />

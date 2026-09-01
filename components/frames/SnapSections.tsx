@@ -11,8 +11,7 @@ import { SNAP_REFRESH_EVENT } from "@/lib/snap";
  * Desktop snap via Lenis.scrollTo only (no ScrollTrigger.snap — fights Lenis).
  * All DOM queries scoped to `.desktop-only` — mobile tree shares duplicate IDs.
  *
- * Free-scroll corridors (snap at edges only):
- * - #apply-form: Tally embed
+ * Free-scroll corridor (snap at edges only):
  * - #intro: pinned GSAP scrub timeline
  */
 function easeInOutCubic(t: number) {
@@ -35,11 +34,6 @@ function zoneBounds(el: HTMLElement, lenis: Lenis): ZoneBounds {
   const bottom = top + el.offsetHeight;
   const exit = Math.max(top, bottom - window.innerHeight);
   return { top, bottom, exit };
-}
-
-function getApplyCorridorBounds(ctx: SnapContext): ZoneBounds | null {
-  const el = ctx.root.querySelector<HTMLElement>("#apply-form");
-  return el ? zoneBounds(el, ctx.lenis) : null;
 }
 
 /** Intro corridor matches ScrollTrigger pin range, not raw offsetHeight. */
@@ -77,7 +71,6 @@ function shouldFreeScrollZone(
   const corridor = exit - top;
   const hasInterior = corridor > CORRIDOR_EDGE * 2;
 
-  // Section fits ~one viewport — pass wheel to Lenis so the form stays usable
   if (!hasInterior) {
     return (
       scrollY >= top - CORRIDOR_EDGE && scrollY <= bottom + CORRIDOR_EDGE
@@ -89,55 +82,12 @@ function shouldFreeScrollZone(
   return true;
 }
 
-function shouldFreeScrollCorridor(
-  scrollY: number,
-  deltaY: number,
-  ctx: SnapContext,
-) {
-  return shouldFreeScrollZone(
-    scrollY,
-    deltaY,
-    getApplyCorridorBounds(ctx),
-  );
-}
-
 function shouldFreeScrollIntro(
   scrollY: number,
   deltaY: number,
   ctx: SnapContext,
 ) {
   return shouldFreeScrollZone(scrollY, deltaY, getIntroBounds(ctx));
-}
-
-function shouldFreeScroll(
-  scrollY: number,
-  deltaY: number,
-  ctx: SnapContext,
-  wheelTarget?: EventTarget | null,
-) {
-  if (
-    shouldFreeScrollCorridor(scrollY, deltaY, ctx) ||
-    shouldFreeScrollIntro(scrollY, deltaY, ctx)
-  ) {
-    return true;
-  }
-
-  if (!(wheelTarget instanceof Element)) return false;
-  if (!wheelTarget.closest(".apply-form, .apply-embed-hit")) return false;
-
-  const bounds = getApplyCorridorBounds(ctx);
-  if (!bounds) return false;
-
-  const { top, exit, bottom } = bounds;
-  if (scrollY < top - CORRIDOR_EDGE || scrollY > bottom + CORRIDOR_EDGE) {
-    return false;
-  }
-
-  const hasInterior = exit - top > CORRIDOR_EDGE * 2;
-  if (!hasInterior) return true;
-
-  if (scrollY >= exit - CORRIDOR_EDGE && deltaY > 0) return false;
-  return true;
 }
 
 function collectRests(ctx: SnapContext) {
@@ -153,13 +103,6 @@ function collectRests(ctx: SnapContext) {
   root.querySelectorAll<HTMLElement>(".js-snap").forEach((el) => {
     push(el.getBoundingClientRect().top + y);
   });
-
-  const form = root.querySelector<HTMLElement>("#apply-form");
-  if (form) {
-    const { top, exit } = zoneBounds(form, lenis);
-    push(top);
-    if (exit - top > REST_MERGE) push(exit);
-  }
 
   const introBounds = getIntroBounds(ctx);
   if (introBounds) {
@@ -282,9 +225,7 @@ export function SnapSections() {
 
           if (sideways) return false;
 
-          if (
-            shouldFreeScroll(lenis.scroll, data.deltaY, ctx, data.event.target)
-          ) {
+          if (shouldFreeScrollIntro(lenis.scroll, data.deltaY, ctx)) {
             return true;
           }
 
@@ -330,7 +271,7 @@ export function SnapSections() {
             return;
           }
 
-          if (shouldFreeScroll(lenis.scroll, deltaY, ctx, e.target)) {
+          if (shouldFreeScrollIntro(lenis.scroll, deltaY, ctx)) {
             return;
           }
 

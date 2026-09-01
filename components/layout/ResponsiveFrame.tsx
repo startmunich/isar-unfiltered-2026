@@ -8,7 +8,6 @@ type ResponsiveFrameProps = {
 /**
  * Renders both trees; CSS visibility avoids hydration mismatch.
  * Hash IDs are mirrored on both trees. DOM logic must scope to .desktop-only / .mobile-only.
- * Mobile apply form also exposes #m-apply-form.
  */
 export function ResponsiveFrame({ mobile, desktop }: ResponsiveFrameProps) {
   return (

@@ -395,41 +395,6 @@
     opacity: 0.75;
   }
 
-  /* —— Apply (mobile spacing on shared components) —— */
-  .mobile-only .apply-form-inner .apply-headline {
-    margin: 0;
-    text-align: center;
-  }
-
-  .mobile-only .apply-form-inner .apply-sub {
-    margin-top: 0.75rem;
-    text-align: center;
-  }
-
-  .mobile-only .apply-form,
-  .mobile-only .apply-corridor {
-    min-height: auto;
-    height: auto;
-    padding-bottom: var(--m-section-gap);
-  }
-
-  .mobile-only .apply-form-inner {
-    min-height: 0;
-    flex: 0 0 auto;
-    gap: clamp(1.25rem, 3vh, 1.75rem);
-  }
-
-  .mobile-only .apply-embed-wrap {
-    flex: 0 0 auto;
-    min-height: 380px;
-    height: auto;
-  }
-
-  .mobile-only .apply-embed {
-    min-height: 380px;
-    height: auto;
-  }
-
   /* —— Intro beats —— */
   .m-intro-beat {
     padding: var(--m-section-gap) var(--m-section-pad);

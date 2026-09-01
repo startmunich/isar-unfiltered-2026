@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { applyHref, copy } from "@/lib/copy";
+import { applyPageHref, copy } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 
@@ -27,7 +27,7 @@ export function Reasons() {
         <div className="rtb-dare-green">
           <div className="rtb-dare-copy">
             <p>{copy.rev2.rtb.dare.body}</p>
-            <TextLink href={applyHref} arrow="yellow">
+            <TextLink href={applyPageHref} newTab arrow="yellow">
               {copy.rev2.rtb.dare.kicker}
             </TextLink>
           </div>

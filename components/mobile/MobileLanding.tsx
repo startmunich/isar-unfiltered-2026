@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { mobileApplyFormHref, copy } from "@/lib/copy";
+import { applyPageHref, copy } from "@/lib/copy";
 import { landingSlides } from "@/lib/media";
 import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
@@ -74,7 +74,7 @@ export function MobileLanding() {
           </div>
         </div>
 
-        <TextLink href={mobileApplyFormHref} arrow="green" className="m-landing-cta">
+        <TextLink href={applyPageHref} newTab arrow="green" className="m-landing-cta">
           {copy.rev2.applyToday}
         </TextLink>
 

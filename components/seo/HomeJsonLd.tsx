@@ -56,10 +56,15 @@ export function HomeJsonLd() {
     },
     offers: {
       "@type": "Offer",
-      url: absoluteUrl("/#apply"),
+      url: absoluteUrl("/apply"),
       price: "0",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
+    },
+    potentialAction: {
+      "@type": "RegisterAction",
+      target: absoluteUrl("/apply"),
+      name: "Apply",
     },
   };
 

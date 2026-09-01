@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { applyHref, copy } from "@/lib/copy";
+import { applyPageHref, copy } from "@/lib/copy";
 import { publicFooterLinks } from "@/lib/site";
 import GridDistortion from "@/components/react-bits/GridDistortion";
 import { TextLink } from "@/components/ui/TextLink";
@@ -60,7 +60,7 @@ export function Closer() {
             >
               {copy.rev2.closer.linkedin}
             </a>
-            <TextLink href={applyHref} arrow="green">
+            <TextLink href={applyPageHref} newTab arrow="green">
               {copy.rev2.closer.apply}
             </TextLink>
           </nav>

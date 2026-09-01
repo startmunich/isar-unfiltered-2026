@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { applyHref, copy } from "@/lib/copy";
+import { applyPageHref, copy } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 import { FeaturesLayer } from "@/components/frames/Features";
@@ -196,7 +196,8 @@ export function Intro() {
               headline={intro.a.right.headline}
               body={intro.a.right.body}
               cta={intro.a.right.cta}
-              href={applyHref}
+              href={applyPageHref}
+              newTab
               align="left"
               vAlign="lower"
             />
@@ -242,6 +243,7 @@ function CopyBlock({
   href,
   align,
   vAlign,
+  newTab,
 }: {
   headline: string;
   body: string;
@@ -249,6 +251,7 @@ function CopyBlock({
   href: string;
   align: "left" | "right";
   vAlign: "start" | "center" | "end" | "lower";
+  newTab?: boolean;
 }) {
   return (
     <div
@@ -256,7 +259,7 @@ function CopyBlock({
     >
       <h2 className="intro-copy-headline">{headline}</h2>
       <p className="intro-copy-body">{body}</p>
-      <TextLink href={href} arrow="green" className="intro-copy-cta">
+      <TextLink href={href} newTab={newTab} arrow="green" className="intro-copy-cta">
         {cta}
       </TextLink>
     </div>

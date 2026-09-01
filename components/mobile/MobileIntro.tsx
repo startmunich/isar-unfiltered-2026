@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { mobileApplyFormHref, copy } from "@/lib/copy";
+import { applyPageHref, copy } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
@@ -22,7 +22,7 @@ const beats = [
     headline: intro.a.right.headline,
     body: intro.a.right.body,
     cta: intro.a.right.cta,
-    href: mobileApplyFormHref,
+    href: applyPageHref,
   },
   {
     theme: "yellow" as const,
@@ -62,6 +62,7 @@ export function MobileIntro() {
             <p className="m-intro-body">{beat.body}</p>
             <TextLink
               href={beat.href}
+              newTab={beat.href === applyPageHref}
               arrow={beat.theme === "green" ? "yellow" : "green"}
               className="m-intro-cta"
             >

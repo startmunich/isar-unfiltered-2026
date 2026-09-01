@@ -824,10 +824,6 @@ html[data-menu-show="false"] .menu-trigger {
     opacity: 0 !important;
   }
 
-  .apply-embed-hit {
-    transition: none;
-  }
-
   .landing-slide {
     opacity: 0 !important;
   }
@@ -1232,197 +1228,60 @@ html[data-menu-show="false"] .menu-trigger {
   justify-content: center;
 }
 
-.apply-form,
-.apply-corridor {
-  --apply-pad-y: clamp(1.5rem, 4vh, 2.5rem);
-  position: relative;
+.apply-page {
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: auto;
   min-height: 100svh;
-  overflow: visible;
-  padding: var(--apply-pad-y) var(--frame-inset);
-}
-
-.apply-form-inner {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: min(52rem, 100%);
-  margin-inline: auto;
-  flex: 1 1 auto;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: clamp(1.5rem, 3.5vh, 2.25rem);
-  /* One viewport minus section padding — guide + form share this, not stack past it */
-  min-height: calc(100svh - (2 * var(--apply-pad-y)));
+  background: var(--color-yellow);
+  color: var(--color-green);
 }
 
-.apply-form-guide {
+.apply-page-bar {
   flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: min(52rem, 100%);
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--color-green);
-  text-align: center;
+  padding: max(1rem, env(safe-area-inset-top))
+    max(var(--frame-inset), env(safe-area-inset-right))
+    clamp(0.75rem, 2vh, 1rem)
+    max(var(--frame-inset), env(safe-area-inset-left));
 }
 
-.apply-form-guide-kicker {
-  margin: 0;
-  width: 100%;
-  text-align: center;
+.apply-page-back {
   font-family: var(--font-cond);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-green);
-  opacity: 0.7;
-}
-
-.apply-form-guide-body {
-  margin: 0.45rem 0 0;
-  width: 100%;
-  text-align: center;
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4.2vw, 2.75rem);
-  font-weight: 900;
-  line-height: 0.98;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  text-decoration: none;
   color: var(--color-green);
 }
 
-.apply-form-guide-hint {
-  margin: 0.55rem 0 0;
-  width: 100%;
-  text-align: center;
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: var(--color-green);
-  opacity: 0.78;
-  max-width: none;
-  text-wrap: balance;
+.apply-page-back:hover {
+  opacity: 0.75;
 }
 
-@media (min-width: 768px) {
-  .apply-form-guide-hint {
-    white-space: nowrap;
-  }
-}
-
-.apply-embed-wrap {
-  position: relative;
+.apply-page-embed-wrap {
   flex: 1 1 auto;
   width: 100%;
-  max-width: min(52rem, 100%);
+  max-width: min(72rem, 100%);
   margin-inline: auto;
-  height: auto;
-  min-height: 320px;
+  padding: 0 var(--frame-inset)
+    max(clamp(1rem, 3vh, 2rem), env(safe-area-inset-bottom));
+}
+
+.apply-page-embed {
+  display: block;
+  width: 100%;
+  min-height: calc(100svh - 4.5rem);
   border: 2px solid var(--color-green);
-  /* Match Tally’s green theme so shorter pages don’t flash white under the form */
   background: var(--color-green);
-  overflow: visible;
 }
 
-.apply-embed-wrap.is-active {
-  outline: 3px solid var(--color-yellow);
-  outline-offset: 3px;
-}
-
-.apply-embed-hit {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+.apply-page-fallback {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
-  padding: clamp(1rem, 4vw, 2rem);
-  border: 0;
-  background: rgb(2 70 46 / 0.8);
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.28s ease;
-}
-
-.apply-embed-hit:hover,
-.apply-embed-hit:focus-visible {
-  background: rgb(2 70 46 / 0.5);
-}
-
-.apply-embed-hit:focus-visible {
-  outline: 3px solid var(--color-yellow);
-  outline-offset: -6px;
-}
-
-.apply-embed-hit-card {
-  display: flex;
-  max-width: 22rem;
-  flex-direction: column;
-  gap: 0.55rem;
-  padding: 1.15rem 1.35rem;
-  border: 2px solid var(--color-green);
-  background: var(--color-yellow);
-  color: var(--color-green);
-  box-shadow: 0 12px 40px rgb(0 0 0 / 0.22);
-}
-
-.apply-embed-hit-label {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.apply-embed-hit-sub {
-  font-size: 0.9rem;
-  line-height: 1.35;
-}
-
-.apply-embed {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  border: 0;
-  background: transparent;
-  vertical-align: top;
-}
-
-@media (min-width: 1024px) {
-  .apply-form,
-  .apply-corridor {
-    z-index: 1;
-  }
-
-  .apply-form-inner,
-  .apply-form-guide,
-  .apply-embed-wrap {
-    max-width: none;
-    width: 100%;
-  }
-
-  .apply-embed-wrap {
-    flex: 0 0 auto;
-    min-height: 0;
-    background: transparent;
-  }
-}
-
-.apply-fallback {
-  margin-top: clamp(2rem, 5vh, 3rem);
+  padding: var(--frame-inset);
   font-family: var(--font-cond);
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   letter-spacing: 0.04em;
@@ -1430,28 +1289,9 @@ html[data-menu-show="false"] .menu-trigger {
   text-align: center;
 }
 
-@media (max-width: 1023px) {
-  .apply-form,
-  .apply-corridor {
-    --apply-pad-y: clamp(1.25rem, 3.5vh, 2rem);
-    min-height: 100svh;
-  }
-
-  .apply-form-inner {
-    max-width: none;
-  }
-
-  .apply-embed-wrap {
-    min-height: 380px;
-  }
-
-  .apply-embed {
-    min-height: 380px;
-  }
-
-  .apply-embed-hit-card {
-    max-width: 100%;
-  }
+body:has(.apply-page) .menu-trigger,
+body:has(.apply-page) .parked-iu26 {
+  display: none;
 }
 
 .program-days .accordion-gallery {
@@ -2212,22 +2052,6 @@ html[data-menu-show="false"] .menu-trigger {
   .apply-sub {
     font-size: var(--m-body);
     max-width: 28rem;
-  }
-
-  .apply-form-guide-body {
-    font-size: clamp(1.85rem, 9vw, 2.8rem);
-    letter-spacing: 0.05em;
-  }
-
-  .apply-form,
-  .apply-corridor {
-    --apply-pad-y: clamp(1.1rem, 3.2vh, 1.8rem);
-  }
-
-  .apply-form-inner {
-    max-width: min(52rem, 100%);
-    align-items: center;
-    gap: clamp(1.25rem, 3vh, 1.85rem);
   }
 
   .rtb-dare-photo {
