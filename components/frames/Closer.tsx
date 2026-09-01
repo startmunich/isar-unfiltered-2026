@@ -1,14 +1,73 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useRef, type MouseEvent } from "react";
 import Link from "next/link";
 import { applyPageHref, copy } from "@/lib/copy";
 import { publicFooterLinks } from "@/lib/site";
+import { prefersReducedMotion } from "@/lib/gsap";
 import GridDistortion from "@/components/react-bits/GridDistortion";
 import { TextLink } from "@/components/ui/TextLink";
+import { useLenis } from "lenis/react";
+import { useViewportProfile } from "@/hooks/useViewportProfile";
+
+function hashFromHref(href: string) {
+  if (href.startsWith("#")) return href;
+  if (href.startsWith("/#")) return href.slice(1);
+  try {
+    const url = new URL(href, window.location.origin);
+    if (url.pathname === "/" && url.hash) return url.hash;
+  } catch {
+    /* ignore */
+  }
+  return null;
+}
 
 export function Closer() {
   const rootRef = useRef<HTMLElement>(null);
+  const lenis = useLenis();
+  const profile = useViewportProfile();
+
+  const onSitemapClick = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+      const hash = hashFromHref(href);
+      if (!hash || !profile) return;
+
+      const frameRoot = document.querySelector<HTMLElement>(
+        profile === "mobile" ? ".mobile-only" : ".desktop-only",
+      );
+      if (!frameRoot) return;
+
+      if (
+        hash === "#features" &&
+        profile === "desktop" &&
+        !prefersReducedMotion()
+      ) {
+        const intro = frameRoot.querySelector<HTMLElement>("#intro");
+        if (intro) {
+          e.preventDefault();
+          const top = intro.offsetTop + intro.offsetHeight * 0.35;
+          window.setTimeout(() => {
+            if (lenis) lenis.scrollTo(top, { immediate: false });
+            else window.scrollTo({ top, behavior: "smooth" });
+          }, 40);
+          return;
+        }
+      }
+
+      const el = frameRoot.querySelector<HTMLElement>(hash);
+      if (!el) return;
+
+      e.preventDefault();
+      window.setTimeout(() => {
+        if (profile === "desktop" && lenis) {
+          lenis.scrollTo(el, { offset: 0, immediate: false });
+        } else {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 40);
+    },
+    [lenis, profile],
+  );
 
   return (
     <section
@@ -40,7 +99,11 @@ export function Closer() {
         <div className="closer-foot">
           <nav className="closer-sitemap" aria-label="On this site">
             {publicFooterLinks().map((item) => (
-              <Link key={item.href} href={item.href}>
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={(e) => onSitemapClick(e, item.href)}
+              >
                 {item.label}
               </Link>
             ))}
@@ -65,11 +128,6 @@ export function Closer() {
             </TextLink>
           </nav>
           <p className="closer-legal">
-            <Link href="/impressum">Impressum</Link>
-            <span aria-hidden> · </span>
-            <Link href="/datenschutz">Datenschutz</Link>
-          </p>
-          <p className="closer-credit">
             <a
               href={copy.footer.wide}
               target="_blank"

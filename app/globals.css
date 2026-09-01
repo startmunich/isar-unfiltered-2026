@@ -1785,7 +1785,7 @@ body:has(.apply-page) .parked-iu26 {
 }
 
 .closer-legal a {
-  color: inherit;
+  color: var(--color-yellow);
   text-decoration: none;
 }
 

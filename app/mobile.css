@@ -764,18 +764,21 @@
     color: var(--color-green);
   }
 
-  .m-closer-credit {
-    margin: 0;
+  .m-closer-sitemap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.55rem 1rem;
+    margin-bottom: 1.25rem;
     font-family: var(--font-cond);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    opacity: 0.55;
   }
 
-  .m-closer-credit a {
-    color: inherit;
+  .m-closer-sitemap a {
+    color: var(--color-yellow);
     text-decoration: none;
   }
 
@@ -790,7 +793,7 @@
   }
 
   .m-closer-legal a {
-    color: inherit;
+    color: var(--color-yellow);
     text-decoration: none;
   }
 

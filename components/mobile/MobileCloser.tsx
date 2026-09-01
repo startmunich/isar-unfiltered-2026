@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { copy } from "@/lib/copy";
 import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
+import { publicFooterLinks } from "@/lib/site";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
 
 export function MobileCloser() {
@@ -28,6 +29,14 @@ export function MobileCloser() {
         </p>
       </MobileReveal>
 
+      <nav className="m-closer-sitemap" aria-label="On this site">
+        {publicFooterLinks().map((item) => (
+          <Link key={item.href} href={item.href}>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+
       <nav className="m-closer-social" aria-label="Social">
         <a
           href={copy.footer.instagram}
@@ -50,12 +59,6 @@ export function MobileCloser() {
       </nav>
 
       <p className="m-closer-legal">
-        <Link href="/impressum">Impressum</Link>
-        <span aria-hidden> · </span>
-        <Link href="/datenschutz">Datenschutz</Link>
-      </p>
-
-      <p className="m-closer-credit">
         <a
           href={copy.footer.wide}
           target="_blank"

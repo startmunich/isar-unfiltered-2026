@@ -28,6 +28,8 @@ export const copy = {
       { label: "Partners", href: "/#partners" },
       { label: "Mentors", href: "/mentors" },
       { label: "Program", href: "/#program" },
+      { label: "Impressum", href: "/impressum" },
+      { label: "Datenschutz", href: "/datenschutz" },
     ],
   },
   rev2: {
