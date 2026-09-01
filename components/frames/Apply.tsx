@@ -19,6 +19,8 @@ declare global {
 }
 
 const TALLY_SCRIPT = "https://tally.so/widgets/embed.js";
+const TALLY_FALLBACK_HEIGHT = 560;
+const MOBILE_EMBED_MIN_HEIGHT = 380;
 
 function loadTallyEmbeds() {
   if (typeof window.Tally !== "undefined") {
@@ -129,11 +131,15 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
       const wrapEl = wrapRef.current;
       if (!iframeEl || !Number.isFinite(height) || height < 120) return;
 
-      const next = `${Math.ceil(height)}px`;
+      const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+      const resolved = isMobile
+        ? Math.max(height, MOBILE_EMBED_MIN_HEIGHT)
+        : height;
+      const next = `${Math.ceil(resolved)}px`;
       iframeEl.style.height = next;
       iframeEl.style.minHeight = next;
       if (wrapEl) {
-        wrapEl.style.height = "auto";
+        wrapEl.style.height = next;
         wrapEl.style.minHeight = next;
       }
       scheduleLayoutRefresh();
@@ -154,6 +160,8 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
       ) {
         loadTallyEmbeds();
         window.setTimeout(loadTallyEmbeds, 120);
+        window.setTimeout(loadTallyEmbeds, 400);
+        scheduleLayoutRefresh();
       }
     };
 
@@ -235,6 +243,7 @@ export function ApplyForm({ tree }: { tree: "desktop" | "mobile" }) {
                 ref={embedRef}
                 data-tally-src={embedSrc}
                 width="100%"
+                height={TALLY_FALLBACK_HEIGHT}
                 frameBorder={0}
                 marginHeight={0}
                 marginWidth={0}

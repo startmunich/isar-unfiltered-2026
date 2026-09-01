@@ -421,12 +421,12 @@
 
   .mobile-only .apply-embed-wrap {
     flex: 0 0 auto;
-    min-height: 320px;
+    min-height: 380px;
     height: auto;
   }
 
   .mobile-only .apply-embed {
-    min-height: 320px;
+    min-height: 380px;
     height: auto;
   }
 
@@ -660,6 +660,10 @@
 
   .m-partners .logo-loop__item img[alt="10x Founders"] {
     height: calc(var(--logo-loop-logoHeight) * 0.62);
+  }
+
+  .m-partners .logo-loop__item img[alt="EWOR"] {
+    height: calc(var(--logo-loop-logoHeight) * 0.55);
   }
 
   .mobile-only .logo-loop__link:active {

@@ -1242,7 +1242,7 @@ html[data-menu-show="false"] .menu-trigger {
   align-items: center;
   width: 100%;
   height: auto;
-  min-height: 100dvh;
+  min-height: 100svh;
   overflow: visible;
   padding: var(--apply-pad-y) var(--frame-inset);
 }
@@ -1258,7 +1258,7 @@ html[data-menu-show="false"] .menu-trigger {
   align-items: center;
   gap: clamp(1.5rem, 3.5vh, 2.25rem);
   /* One viewport minus section padding — guide + form share this, not stack past it */
-  min-height: calc(100dvh - (2 * var(--apply-pad-y)));
+  min-height: calc(100svh - (2 * var(--apply-pad-y)));
 }
 
 .apply-form-guide {
@@ -1395,10 +1395,30 @@ html[data-menu-show="false"] .menu-trigger {
   display: block;
   width: 100%;
   height: auto;
-  min-height: 320px;
+  min-height: 0;
   border: 0;
   background: transparent;
   vertical-align: top;
+}
+
+@media (min-width: 1024px) {
+  .apply-form,
+  .apply-corridor {
+    z-index: 1;
+  }
+
+  .apply-form-inner,
+  .apply-form-guide,
+  .apply-embed-wrap {
+    max-width: none;
+    width: 100%;
+  }
+
+  .apply-embed-wrap {
+    flex: 0 0 auto;
+    min-height: 0;
+    background: transparent;
+  }
 }
 
 .apply-fallback {
@@ -1414,11 +1434,19 @@ html[data-menu-show="false"] .menu-trigger {
   .apply-form,
   .apply-corridor {
     --apply-pad-y: clamp(1.25rem, 3.5vh, 2rem);
-    min-height: 100dvh;
+    min-height: 100svh;
   }
 
   .apply-form-inner {
     max-width: none;
+  }
+
+  .apply-embed-wrap {
+    min-height: 380px;
+  }
+
+  .apply-embed {
+    min-height: 380px;
   }
 
   .apply-embed-hit-card {
@@ -1783,6 +1811,10 @@ html[data-menu-show="false"] .menu-trigger {
 
 .partners .logo-loop__item img[alt="10x Founders"] {
   height: calc(var(--logo-loop-logoHeight) * 0.62);
+}
+
+.partners .logo-loop__item img[alt="EWOR"] {
+  height: calc(var(--logo-loop-logoHeight) * 0.55);
 }
 
 .closer {

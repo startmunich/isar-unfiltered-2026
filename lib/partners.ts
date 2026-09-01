@@ -30,6 +30,12 @@ export const partnerLogos: ImageLogoItem[] = [
     title: "10x Founders",
     href: withUtm("https://www.10xfounders.com/", "partner_10x"),
   },
+  {
+    src: "/images/partners/ewor.png",
+    alt: "EWOR",
+    title: "EWOR",
+    href: withUtm("https://www.ewor.com/", "partner_ewor"),
+  },
 ];
 
 export async function listPartnerLogos(): Promise<LogoItem[]> {
