@@ -336,6 +336,38 @@ html[data-menu-show="false"] .menu-trigger {
   padding-left: var(--frame-inset);
 }
 
+.apply-countdown {
+  margin-bottom: 0.85rem;
+  color: var(--color-green);
+}
+
+.apply-countdown-label {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-cond);
+  font-size: clamp(0.7rem, 0.85vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.apply-countdown-digits {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.2vw, 4.5rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.apply-countdown-sep {
+  display: inline-block;
+  margin-inline: 0.12em;
+  opacity: 0.85;
+}
+
 .landing-eyebrow {
   margin-bottom: 0.7rem;
   font-family: var(--font-cond);

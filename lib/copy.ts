@@ -13,6 +13,7 @@ export const copy = {
     formActivateHintMobile: "Tap to edit. Scroll outside to move on.",
     formActive: "You're editing. Type your answers here.",
     formActiveHint: "Scroll outside to move on.",
+    countdownLabel: "Applications close in",
   },
   footer: {
     instagram:

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { applyPageHref, copy } from "@/lib/copy";
 import { landingSlides } from "@/lib/media";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
+import { ApplyCountdown } from "@/components/ui/ApplyCountdown";
 import { TextLink } from "@/components/ui/TextLink";
 
 export function Landing() {
@@ -56,6 +57,7 @@ export function Landing() {
         </div>
 
         <div className="landing-lockup">
+          <ApplyCountdown />
           <p className="landing-eyebrow">{copy.rev2.eyebrow}</p>
           <div className="landing-logo">
             <Image

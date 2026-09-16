@@ -6,6 +6,7 @@ import { applyPageHref, copy } from "@/lib/copy";
 import { landingSlides } from "@/lib/media";
 import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
+import { ApplyCountdown } from "@/components/ui/ApplyCountdown";
 import { TextLink } from "@/components/ui/TextLink";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
 
@@ -46,6 +47,7 @@ export function MobileLanding() {
       <h1 className="sr-only">ISAR UNFILTERED</h1>
 
       <MobileReveal className="m-landing-lockup">
+        <ApplyCountdown className="m-apply-countdown" />
         <p className="m-landing-eyebrow">{copy.rev2.eyebrow}</p>
 
         <div className="m-landing-logo-wrap">

@@ -75,6 +75,20 @@
     gap: clamp(1.1rem, 4vh, 1.75rem);
   }
 
+  .m-apply-countdown {
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .m-apply-countdown .apply-countdown-label {
+    font-size: clamp(0.7rem, 3.2vw, 0.8rem);
+  }
+
+  .m-apply-countdown .apply-countdown-digits {
+    font-size: clamp(2rem, 11vw, 3.1rem);
+  }
+
   .m-landing-eyebrow {
     width: min(68vw, 19rem);
     margin-inline: auto;

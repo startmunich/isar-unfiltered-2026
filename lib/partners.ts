@@ -36,6 +36,18 @@ export const partnerLogos: ImageLogoItem[] = [
     title: "EWOR",
     href: withUtm("https://www.ewor.com/", "partner_ewor"),
   },
+  {
+    src: "/images/partners/amd.png",
+    alt: "AMD",
+    title: "AMD",
+    href: withUtm("https://www.amd.com/", "partner_amd"),
+  },
+  {
+    src: "/images/partners/munich-startup.png",
+    alt: "Munich Startup",
+    title: "Munich Startup",
+    href: withUtm("https://www.munich-startup.de/", "partner_munich_startup"),
+  },
 ];
 
 export async function listPartnerLogos(): Promise<LogoItem[]> {
