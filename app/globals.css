@@ -316,6 +316,26 @@ html[data-menu-show="false"] .menu-trigger {
   padding: 0 var(--frame-inset) 0.2rem;
 }
 
+.landing-countdown {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 0 0 0.2rem var(--frame-inset);
+}
+
+.landing-countdown .apply-countdown-digit,
+.landing-countdown .apply-countdown-sep {
+  font-size: clamp(1.85rem, 3.4vw, 3.25rem);
+}
+
+.landing-countdown .apply-countdown-unit-label {
+  font-size: clamp(0.58rem, 0.7vw, 0.72rem);
+}
+
 .landing-dates {
   margin: 0;
   font-size: 13px;
@@ -337,12 +357,12 @@ html[data-menu-show="false"] .menu-trigger {
 }
 
 .apply-countdown {
-  margin-bottom: 0.85rem;
+  margin-bottom: 0;
   color: var(--color-green);
 }
 
 .apply-countdown-label {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.35rem;
   font-family: var(--font-cond);
   font-size: clamp(0.7rem, 0.85vw, 0.875rem);
   font-weight: 700;
@@ -351,10 +371,27 @@ html[data-menu-show="false"] .menu-trigger {
   line-height: 1.2;
 }
 
-.apply-countdown-digits {
-  margin: 0;
+.apply-countdown-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.apply-countdown-unit {
+  display: flex;
+  align-items: flex-start;
+}
+
+.apply-countdown-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 2.2ch;
+}
+
+.apply-countdown-digit {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.2vw, 4.5rem);
+  font-size: clamp(2.2rem, 4.8vw, 4.2rem);
   font-weight: 900;
   line-height: 0.88;
   letter-spacing: 0.02em;
@@ -362,9 +399,25 @@ html[data-menu-show="false"] .menu-trigger {
   font-variant-numeric: tabular-nums;
 }
 
+.apply-countdown-unit-label {
+  margin-top: 0.28em;
+  font-family: var(--font-body);
+  font-size: clamp(0.62rem, 0.75vw, 0.78rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  line-height: 1;
+  opacity: 0.72;
+}
+
 .apply-countdown-sep {
   display: inline-block;
-  margin-inline: 0.12em;
+  margin-inline: 0.18em;
+  padding-top: 0.08em;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+  font-weight: 900;
+  line-height: 0.88;
   opacity: 0.85;
 }
 
@@ -1688,6 +1741,14 @@ body:has(.apply-page) .parked-iu26 {
 
 .partners .logo-loop__item img[alt="EWOR"] {
   height: calc(var(--logo-loop-logoHeight) * 0.62);
+}
+
+.partners .logo-loop__item img[alt="AMD"] {
+  height: calc(var(--logo-loop-logoHeight) * 0.52);
+}
+
+.partners .logo-loop__item img[alt="Munich Startup"] {
+  height: calc(var(--logo-loop-logoHeight) * 1.35);
 }
 
 .closer {

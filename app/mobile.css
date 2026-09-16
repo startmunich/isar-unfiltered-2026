@@ -85,8 +85,17 @@
     font-size: clamp(0.7rem, 3.2vw, 0.8rem);
   }
 
-  .m-apply-countdown .apply-countdown-digits {
-    font-size: clamp(2rem, 11vw, 3.1rem);
+  .m-apply-countdown .apply-countdown-row {
+    justify-content: center;
+  }
+
+  .m-apply-countdown .apply-countdown-digit,
+  .m-apply-countdown .apply-countdown-sep {
+    font-size: clamp(1.85rem, 9.5vw, 2.85rem);
+  }
+
+  .m-apply-countdown .apply-countdown-unit-label {
+    font-size: clamp(0.58rem, 2.6vw, 0.7rem);
   }
 
   .m-landing-eyebrow {
@@ -643,6 +652,14 @@
 
   .m-partners .logo-loop__item img[alt="EWOR"] {
     height: calc(var(--logo-loop-logoHeight) * 0.62);
+  }
+
+  .m-partners .logo-loop__item img[alt="AMD"] {
+    height: calc(var(--logo-loop-logoHeight) * 0.52);
+  }
+
+  .m-partners .logo-loop__item img[alt="Munich Startup"] {
+    height: calc(var(--logo-loop-logoHeight) * 1.35);
   }
 
   .mobile-only .logo-loop__link:active {

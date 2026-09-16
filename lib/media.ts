@@ -40,13 +40,31 @@ export const photos = {
     alt: "Fabi in an ISAR UNFILTERED shirt",
   },
   rtbPitch: {
-    src: "/images/Isar_Unfiltered-124.jpg",
-    alt: "Backstage at the event, graphic type on a black shirt",
+    src: "/images/rtb-no-pitch.jpg",
+    alt: "Builders in the room — no pitch zone",
   },
   rtbDare: {
     src: "/images/Isar_Unfiltered-181.jpg",
     alt: "Portrait of a builder in the audience",
   },
+  programDays: [
+    {
+      src: "/images/program/program-day-1.jpg",
+      alt: "ISAR Unfiltered — day one energy",
+    },
+    {
+      src: "/images/program/program-day-2.jpg",
+      alt: "ISAR Unfiltered — conversations in the room",
+    },
+    {
+      src: "/images/program/program-day-3.jpg",
+      alt: "ISAR Unfiltered — the crowd, unfiltered",
+    },
+    {
+      src: "/images/program/program-day-4.jpg",
+      alt: "ISAR Unfiltered — after hours builders",
+    },
+  ],
   gallery: [
     {
       src: "/images/Isar_Unfiltered-123.jpg",

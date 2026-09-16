@@ -46,6 +46,10 @@ export function Landing() {
       <h1 className="sr-only">ISAR UNFILTERED</h1>
 
       <div className="landing-grid">
+        <div className="landing-countdown">
+          <ApplyCountdown />
+        </div>
+
         <div className="landing-meta">
           <p className="landing-dates">
             <span className="block font-bold">{copy.rev2.city}</span>
@@ -57,7 +61,6 @@ export function Landing() {
         </div>
 
         <div className="landing-lockup">
-          <ApplyCountdown />
           <p className="landing-eyebrow">{copy.rev2.eyebrow}</p>
           <div className="landing-logo">
             <Image

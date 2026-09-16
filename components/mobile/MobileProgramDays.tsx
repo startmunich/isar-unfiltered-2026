@@ -7,10 +7,10 @@ import { photos } from "@/lib/media";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
 
 const dayPhotos = [
-  photos.feature1,
-  photos.feature2,
-  photos.feature3,
-  photos.rtbPitch,
+  photos.programDays[0],
+  photos.programDays[1],
+  photos.programDays[2],
+  photos.programDays[3],
 ] as const;
 
 export function MobileProgramDays() {

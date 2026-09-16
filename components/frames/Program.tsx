@@ -66,10 +66,10 @@ export function ProgramIntro() {
 }
 
 const dayPhotos = [
-  photos.feature1,
-  photos.feature2,
-  photos.feature3,
-  photos.rtbPitch,
+  photos.programDays[0],
+  photos.programDays[1],
+  photos.programDays[2],
+  photos.programDays[3],
 ] as const;
 
 export function ProgramDays() {
