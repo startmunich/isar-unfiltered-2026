@@ -1,4 +1,4 @@
-import { applyPageHref } from "@/lib/copy";
+import { social } from "@/lib/copy";
 
 type Props = {
   href?: string;
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function StampButton({
-  href = applyPageHref,
+  href = social.linkedin,
   children,
   className = "",
 }: Props) {

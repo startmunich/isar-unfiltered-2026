@@ -54,18 +54,6 @@ export function HomeJsonLd() {
       name: "ISAR Unfiltered",
       url: absoluteUrl("/"),
     },
-    offers: {
-      "@type": "Offer",
-      url: absoluteUrl("/apply"),
-      price: "0",
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-    },
-    potentialAction: {
-      "@type": "RegisterAction",
-      target: absoluteUrl("/apply"),
-      name: "Apply",
-    },
   };
 
   return (

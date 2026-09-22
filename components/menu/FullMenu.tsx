@@ -11,9 +11,8 @@ import {
   useState,
   type MouseEvent,
 } from "react";
-import { applyPageHref } from "@/lib/copy";
-import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
 import { publicMenuItems } from "@/lib/site";
+import { sqLogos, SQ_LOGO_SIZE } from "@/lib/logos";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { useLenis } from "lenis/react";
 import { useViewportProfile } from "@/hooks/useViewportProfile";
@@ -163,22 +162,21 @@ export function FullMenu() {
     >
       <nav className="menu-overlay-nav">
         {publicMenuItems().map((item) => {
-          const isApply = item.label === "Apply";
-          const href = isApply ? applyPageHref : item.href;
+          const external = item.href.startsWith("http");
           return (
             <a
               key={item.href}
               data-menu-link
-              href={href}
-              {...(isApply
+              href={item.href}
+              {...(external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
               onClick={(e) => {
-                if (isApply) {
+                if (external) {
                   close();
                   return;
                 }
-                onNavClick(e, href);
+                onNavClick(e, item.href);
               }}
               className="menu-overlay-link"
             >

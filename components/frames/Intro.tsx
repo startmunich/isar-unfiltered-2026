@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { applyPageHref, copy } from "@/lib/copy";
+import { copy } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 import { FeaturesLayer } from "@/components/frames/Features";
@@ -196,7 +196,7 @@ export function Intro() {
               headline={intro.a.right.headline}
               body={intro.a.right.body}
               cta={intro.a.right.cta}
-              href={applyPageHref}
+              href={intro.a.right.href}
               newTab
               align="left"
               vAlign="lower"

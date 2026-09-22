@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { applyPageHref, copy } from "@/lib/copy";
+import { copy, social } from "@/lib/copy";
 import { prefersReducedMotion } from "@/lib/gsap";
 import RotatingText from "@/components/react-bits/RotatingText";
 import { TextLink } from "@/components/ui/TextLink";
@@ -59,8 +59,13 @@ export function MobileProgramIntro() {
           </span>
         </div>
         <p className="m-program-intro-blurb">{tease.blurb}</p>
-        <TextLink href={applyPageHref} newTab arrow="yellow" className="m-program-intro-cta">
-          {copy.rev2.applyToday}
+        <TextLink
+          href={social.linkedinProgram}
+          newTab
+          arrow="yellow"
+          className="m-program-intro-cta"
+        >
+          {tease.cta}
         </TextLink>
       </MobileReveal>
     </section>

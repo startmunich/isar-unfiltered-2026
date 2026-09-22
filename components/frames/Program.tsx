@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { copy } from "@/lib/copy";
+import { copy, social } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { prefersReducedMotion } from "@/lib/gsap";
 import RotatingText from "@/components/react-bits/RotatingText";
 import AccordionGallery from "@/components/react-bits/AccordionGallery";
+import { TextLink } from "@/components/ui/TextLink";
 
 const tease = copy.programTease;
 const longestWord = tease.words.reduce(
@@ -61,6 +62,14 @@ export function ProgramIntro() {
         </span>
       </p>
       <p className="program-tease-blurb">{tease.blurb}</p>
+      <TextLink
+        href={social.linkedinProgram}
+        newTab
+        arrow="yellow"
+        className="program-tease-cta"
+      >
+        {tease.cta}
+      </TextLink>
     </section>
   );
 }

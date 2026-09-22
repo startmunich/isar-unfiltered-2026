@@ -2,7 +2,7 @@
 
 import { useCallback, useRef, type MouseEvent } from "react";
 import Link from "next/link";
-import { applyPageHref, copy } from "@/lib/copy";
+import { copy, social } from "@/lib/copy";
 import { publicFooterLinks } from "@/lib/site";
 import { prefersReducedMotion } from "@/lib/gsap";
 import GridDistortion from "@/components/react-bits/GridDistortion";
@@ -123,8 +123,8 @@ export function Closer() {
             >
               {copy.rev2.closer.linkedin}
             </a>
-            <TextLink href={applyPageHref} newTab arrow="green">
-              {copy.rev2.closer.apply}
+            <TextLink href={social.linkedinCloser} newTab arrow="green">
+              {copy.rev2.closer.follow}
             </TextLink>
           </nav>
           <p className="closer-legal">

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { applyPageHref, copy } from "@/lib/copy";
+import { copy, social } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
@@ -25,9 +25,24 @@ export function MobileReasons() {
 
         <MobileReveal className="m-reasons-green">
           <p className="m-reasons-body">{copy.rev2.rtb.dare.body}</p>
-          <TextLink href={applyPageHref} newTab arrow="yellow" className="m-reasons-cta">
-            {copy.rev2.rtb.dare.kicker}
-          </TextLink>
+          <div className="m-reasons-ctas">
+            <TextLink
+              href={social.linkedinRtb}
+              newTab
+              arrow="yellow"
+              className="m-reasons-cta"
+            >
+              {copy.rev2.rtb.dare.kicker}
+            </TextLink>
+            <TextLink
+              href={social.instagramRtb}
+              newTab
+              arrow="yellow"
+              className="m-reasons-cta"
+            >
+              {copy.rev2.instagram}
+            </TextLink>
+          </div>
           <p className="m-reasons-meta">
             <span className="block font-bold">{copy.rev2.city}</span>
             <span>{copy.rev2.dates}</span>

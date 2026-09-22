@@ -1,25 +1,63 @@
+import { withUtm } from "@/lib/utm";
+
+const LINKEDIN_BASE =
+  "https://www.linkedin.com/showcase/isar-unfiltered/";
+const INSTAGRAM_BASE = "https://www.instagram.com/isar.unfiltered/";
+
+export const social = {
+  linkedin: withUtm(LINKEDIN_BASE, "follow_linkedin"),
+  instagram: withUtm(INSTAGRAM_BASE, "follow_instagram"),
+  linkedinMenu: withUtm(LINKEDIN_BASE, "menu_follow_iu26"),
+  linkedinHero: withUtm(LINKEDIN_BASE, "hero_follow_story"),
+  instagramHero: withUtm(INSTAGRAM_BASE, "hero_instagram"),
+  linkedinIntro: withUtm(LINKEDIN_BASE, "intro_follow_iu26"),
+  linkedinRtb: withUtm(LINKEDIN_BASE, "rtb_follow_iu26"),
+  instagramRtb: withUtm(INSTAGRAM_BASE, "rtb_instagram"),
+  linkedinProgram: withUtm(LINKEDIN_BASE, "program_follow_iu26"),
+  linkedinCloser: withUtm(LINKEDIN_BASE, "closer_follow_iu26"),
+  instagramCloser: withUtm(INSTAGRAM_BASE, "closer_instagram"),
+  linkedinHappening: withUtm(LINKEDIN_BASE, "happening_follow_iu26"),
+  instagramHappening: withUtm(INSTAGRAM_BASE, "happening_instagram"),
+  linkedinFollowStory: withUtm(LINKEDIN_BASE, "follow_story_linkedin"),
+  instagramFollowStory: withUtm(INSTAGRAM_BASE, "follow_story_instagram"),
+  luma5k: withUtm("https://luma.com/ujokrzce", "program_luma_5k"),
+  lumaIsarAndCo: withUtm(
+    "https://luma.com/start-9y22",
+    "program_luma_isar_and_co",
+  ),
+} as const;
+
+export type ProgramSlot = {
+  when: string;
+  where: string;
+  format: string;
+  length: string;
+  href?: string;
+  cta?: string;
+};
+
 export const copy = {
+  happening: {
+    headline: "IU26 IS HAPPENING.",
+    sub: "100 young builders. Four days in Munich. Follow the story as we bring the room together.",
+    followCta: "FOLLOW IU26",
+    instagramCta: "INSTAGRAM",
+  },
+  followStory: {
+    headline: "FOLLOW THE STORY.",
+    body: "The applications are closed. The room is coming together. Now you can follow what happens next.",
+    detail:
+      "Follow ISAR Unfiltered on LinkedIn and Instagram for the people, conversations, moments and chaos that make IU26 what it is.",
+    linkedinCta: "LINKEDIN",
+    instagramCta: "INSTAGRAM",
+  },
   apply: {
-    headline: "APPLICATIONS ARE OPEN.",
-    sub: "You don't need a company or funding. Just show us what you're building.",
-    cta: "Apply",
+    // Kept only for the unlinked /apply page embed fallback.
     small: "Application form loading soon. Check back shortly.",
-    start: "Start application",
-    formGuide: "Scroll to read, Click to edit",
-    formActivate: "Click to Edit",
-    formActivateHint: "Click to edit. Scroll outside to move on.",
-    formGuideMobile: "Scroll to read, Tap to edit",
-    formActivateMobile: "Tap to Edit",
-    formActivateHintMobile: "Tap to edit. Scroll outside to move on.",
-    formActive: "You're editing. Type your answers here.",
-    formActiveHint: "Scroll outside to move on.",
-    countdownLabel: "Applications close in",
   },
   footer: {
-    instagram:
-      "https://www.instagram.com/isar.unfiltered/?utm_source=isarunfiltered&utm_medium=website&utm_campaign=iu26&utm_content=footer_instagram",
-    linkedin:
-      "https://www.linkedin.com/showcase/isar-unfiltered/?utm_source=isarunfiltered&utm_medium=website&utm_campaign=iu26&utm_content=footer_linkedin",
+    instagram: withUtm(INSTAGRAM_BASE, "footer_instagram"),
+    linkedin: withUtm(LINKEDIN_BASE, "footer_linkedin"),
     wide: "https://www.wide-communication.com/?utm_source=isarunfiltered&utm_medium=website&utm_campaign=iu26&utm_content=footer_wide",
     pages: [
       { label: "Intro", href: "/#intro" },
@@ -37,12 +75,14 @@ export const copy = {
     eyebrow: "Bits & Pretzels Scholarship powered by",
     city: "Munich",
     dates: "27–30 September, 2026",
-    applyToday: "Apply today",
+    followStory: "FOLLOW THE STORY",
+    followIu26: "FOLLOW IU26",
+    instagram: "INSTAGRAM",
     rtb: {
       dare: {
-        kicker: "Apply today",
+        kicker: "FOLLOW IU26",
         title: ["NO", "PITCH", "ZONE"] as const,
-        body: "We're bringing 100 carefully chosen people to Munich for four days. You don't need a company or a funding round. We care what you're actually working on, what problem you're chasing, and why you care enough to do something about it.",
+        body: "100 carefully chosen people. Four days in Munich. No polished pitch required. What matters is what you're actually working on, what problem you're chasing, and why you care enough to do something about it.",
       },
     },
     lookback: {
@@ -54,7 +94,7 @@ export const copy = {
     closer: {
       instagram: "Instagram .",
       linkedin: "Linkedin",
-      apply: "Apply today",
+      follow: "FOLLOW IU26",
     },
     menu: [
       { label: "Landing", href: "/#landing" },
@@ -65,7 +105,7 @@ export const copy = {
       { label: "Why", href: "/#rtb" },
       { label: "Last time", href: "/#iu2025" },
       { label: "Partners", href: "/#partners" },
-      { label: "Apply", href: "/apply" },
+      { label: "FOLLOW IU26", href: social.linkedinMenu },
     ],
   },
   rev3: {
@@ -80,7 +120,8 @@ export const copy = {
         right: {
           headline: "IT'S ALL ABOUT BUILDING HERE",
           body: "You didn't start because it was easy. You started because something annoyed you, because you were curious, or because you got tired of waiting for someone else to fix it.",
-          cta: "Apply today",
+          cta: "FOLLOW IU26",
+          href: social.linkedinIntro,
         },
       },
       b: {
@@ -118,83 +159,78 @@ export const copy = {
   },
   programTease: {
     prefix: "4 DAYS OF",
-    words: [
-      "THINKING",
-      "MEETING",
-      "QUESTIONING",
-      "CONNECTING",
-      "LISTENING",
-      "EXCHANGING",
-    ] as const,
+    words: ["QUESTIONING", "MEETING", "THINKING"] as const,
     title: "PROGRAM",
     blurb:
       "ISAR Unfiltered is four days in Munich for people who are already doing something about a problem they care about. We curate the room so you meet others who are doing the same.",
+    cta: "FOLLOW IU26",
   },
   programDays: [
     {
       n: "0",
       date: "27/09",
-      body: "Pre-event evening. The point is simple: get to know other builders in your generation before the days kick off. Merch, briefing, no pitch zone.",
+      body: "The first chance to meet the room before the main days begin.",
       slots: [
         {
-          when: "Sun 27 Sep, evening",
-          where: "TBA",
-          format: "Intro to ISAR Unfiltered",
+          when: "Sun 27 Sep, 18:00–21:00",
+          where: "Location TBA",
+          format: "Pre-Event",
           length: "3h",
         },
-      ],
+      ] satisfies readonly ProgramSlot[],
     },
     {
       n: "1",
       date: "28/09",
-      body: "First full day on the Bits grounds. Connect to the ecosystem and get inspired by the people building now.",
+      body: "Start the week together, get oriented, and dig into small-group conversations with people who have actually built.",
       slots: [
         {
-          when: "Mon 28 Sep, midday",
-          where: "Room on the Bits & Pretzels grounds",
-          format:
-            "Inspiration Sessions and Unfiltered Conversations with some of the biggest Speakers",
-          length: "1–1.5h",
+          when: "Mon 28 Sep, 08:30–10:00",
+          where: "Location TBA",
+          format: "Onsite Session",
+          length: "1.5h",
         },
         {
-          when: "Mon 28 Sep, afternoon",
-          where: "Across the Bits & Pretzels grounds",
-          format:
-            "Micro Circles, slot 1, with the best founders and operators onsite",
+          when: "Mon 28 Sep, 13:00–16:00",
+          where: "Location TBA",
+          format: "Microcircles",
           length: "3h",
         },
-      ],
+      ] satisfies readonly ProgramSlot[],
     },
     {
       n: "2",
       date: "29/09",
-      body: "Keep plugging into the ecosystem. More circles, more inspiration, then the Munich student scene gathers for real.",
+      body: "Start outside, keep the conversations going, then pull Munich's student initiatives into one room.",
       slots: [
         {
-          when: "Tue 29 Sep, morning",
-          where: "Isar riverside or a café in the city",
-          format: "Running Club & Coffee",
-          length: "1h",
+          when: "Tue 29 Sep, 09:00–11:00",
+          where: "LAP Coffee, Glockenbach",
+          format: "5K Run",
+          length: "2h",
+          href: social.luma5k,
+          cta: "Register",
         },
         {
-          when: "Tue 29 Sep, afternoon",
-          where: "Across the Bits & Pretzels grounds",
-          format:
-            "Micro Circles, slot 2, with the best founders and operators onsite",
+          when: "Tue 29 Sep, 13:00–16:00",
+          where: "Location TBA",
+          format: "Microcircles",
           length: "3h",
         },
         {
-          when: "Tue 29 Sep, evening",
-          where: "A cool community & cultural hub in the heart of Munich",
-          format: "Munich student ecosystem gathering",
-          length: "open evening",
+          when: "Tue 29 Sep, 18:00–22:00",
+          where: "1KOMMA5° Showroom, Pacellistraße 2",
+          format: "Isar & Co. — Student Initiative Gathering",
+          length: "4h",
+          href: social.lumaIsarAndCo,
+          cta: "Register",
         },
-      ],
+      ] satisfies readonly ProgramSlot[],
     },
     {
       n: "3",
       date: "30/09",
-      body: "Oktoberfest day with the 100 people in the room. Table Captains keep the tables moving. Show up, stay curious, make it count.",
+      body: "The final day of IU26. More time together, more conversations, and the last chance to make the room count.",
       slots: [
         {
           when: "Wed 30 Sep, 10:00–12:00",
@@ -202,19 +238,7 @@ export const copy = {
           format: "Table Captains at Oktoberfest",
           length: "2h",
         },
-      ],
+      ] satisfies readonly ProgramSlot[],
     },
   ],
 } as const;
-
-/** Dedicated apply form route. Ignores legacy hash env values like #apply. */
-function resolveApplyPageHref(): string {
-  const env = process.env.NEXT_PUBLIC_APPLY_URL?.trim();
-  if (!env || env.startsWith("#")) return "/apply";
-  return env;
-}
-
-export const applyPageHref = resolveApplyPageHref();
-
-/** @deprecated Use applyPageHref */
-export const applyHref = applyPageHref;

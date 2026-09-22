@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { applyPageHref, copy } from "@/lib/copy";
+import { copy } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
@@ -22,7 +22,7 @@ const beats = [
     headline: intro.a.right.headline,
     body: intro.a.right.body,
     cta: intro.a.right.cta,
-    href: applyPageHref,
+    href: intro.a.right.href,
   },
   {
     theme: "yellow" as const,
@@ -32,6 +32,10 @@ const beats = [
     href: intro.b.left.href,
   },
 ];
+
+function isExternal(href: string) {
+  return href.startsWith("http");
+}
 
 export function MobileIntro() {
   return (
@@ -62,7 +66,7 @@ export function MobileIntro() {
             <p className="m-intro-body">{beat.body}</p>
             <TextLink
               href={beat.href}
-              newTab={beat.href === applyPageHref}
+              newTab={isExternal(beat.href)}
               arrow={beat.theme === "green" ? "yellow" : "green"}
               className="m-intro-cta"
             >

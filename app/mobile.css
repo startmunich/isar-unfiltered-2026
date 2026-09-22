@@ -418,6 +418,19 @@
     opacity: 0.75;
   }
 
+  .m-day-slot-link {
+    display: inline-block;
+    margin-top: 0.45rem;
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-yellow);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
   /* —— Intro beats —— */
   .m-intro-beat {
     padding: var(--m-section-gap) var(--m-section-pad);
@@ -603,8 +616,16 @@
     max-width: 36ch;
   }
 
-  .m-reasons-cta {
+  .m-reasons-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
     margin-top: 1.25rem;
+  }
+
+  .m-reasons-cta {
+    margin-top: 0;
     font-size: 15px;
     font-weight: 700;
   }

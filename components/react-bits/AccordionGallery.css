@@ -170,6 +170,24 @@
   pointer-events: none;
 }
 
+.ag-slot-link {
+  pointer-events: auto;
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-family: var(--font-cond);
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.ag-slot-link:hover {
+  opacity: 0.75;
+}
+
 .ag-open-main {
   display: flex;
   flex-direction: column;

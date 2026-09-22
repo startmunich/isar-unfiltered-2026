@@ -1248,6 +1248,12 @@ html[data-menu-show="false"] .menu-trigger {
   color: var(--color-yellow);
 }
 
+.program-tease-cta {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.25rem;
+}
+
 @media (max-width: 1023px), (prefers-reduced-motion: reduce) {
   .features-motion {
     display: none;
@@ -1311,6 +1317,23 @@ html[data-menu-show="false"] .menu-trigger {
   margin-top: clamp(1.5rem, 4vh, 2.5rem);
   display: inline-flex;
   justify-content: center;
+}
+
+.apply-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem 1.5rem;
+  margin-top: clamp(0.5rem, 1.5vh, 1rem);
+}
+
+.apply-cta-row .apply-start {
+  margin-top: 0;
+}
+
+.apply-sub-detail {
+  margin-top: 0.85rem;
+  max-width: 40rem;
 }
 
 .apply-page {
@@ -1427,6 +1450,14 @@ body:has(.apply-page) .parked-iu26 {
   align-items: center;
   gap: 2.4rem;
   min-width: 0;
+}
+
+.rtb-dare-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  flex-shrink: 0;
 }
 
 .rtb-dare-copy p {

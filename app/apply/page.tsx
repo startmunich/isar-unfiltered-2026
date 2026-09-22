@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/apply" },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
   openGraph: {
     type: "website",
     url: absoluteUrl("/apply"),

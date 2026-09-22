@@ -1,6 +1,6 @@
 import type { LogoItem } from "@/components/react-bits/LogoLoop";
 import type { Iu25Item } from "@/lib/iu25";
-import { ApplyIntro } from "@/components/frames/Apply";
+import { HappeningIntro } from "@/components/frames/Apply";
 import { MobileCloser } from "@/components/mobile/MobileCloser";
 import { MobileFeatures } from "@/components/mobile/MobileFeatures";
 import { MobileIntro } from "@/components/mobile/MobileIntro";
@@ -20,15 +20,16 @@ export function MobileHome({ partnerLogos, lookbackItems }: MobileHomeProps) {
   return (
     <>
       <MobileLanding />
-      <ApplyIntro />
+      <HappeningIntro />
       <MobileIntro />
       <MobileFeatures />
       <MobileProgramIntro />
       <MobileProgramDays />
       <MobileReasons />
+      <HappeningIntro variant="follow" />
       <MobilePartners logos={partnerLogos} />
       <MobileLookback items={lookbackItems} />
-      <ApplyIntro variant="bottom" />
+      <HappeningIntro variant="bottom" />
       <MobileCloser />
     </>
   );

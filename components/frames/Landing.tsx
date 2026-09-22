@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { applyPageHref, copy } from "@/lib/copy";
+import { copy, social } from "@/lib/copy";
 import { landingSlides } from "@/lib/media";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
-import { ApplyCountdown } from "@/components/ui/ApplyCountdown";
 import { TextLink } from "@/components/ui/TextLink";
 
 export function Landing() {
@@ -46,17 +45,26 @@ export function Landing() {
       <h1 className="sr-only">ISAR UNFILTERED</h1>
 
       <div className="landing-grid">
-        <div className="landing-countdown">
-          <ApplyCountdown />
-        </div>
-
         <div className="landing-meta">
           <p className="landing-dates">
             <span className="block font-bold">{copy.rev2.city}</span>
             <span className="block">{copy.rev2.dates}</span>
           </p>
-          <TextLink href={applyPageHref} newTab arrow="green" className="landing-cta">
-            {copy.rev2.applyToday}
+          <TextLink
+            href={social.linkedinHero}
+            newTab
+            arrow="green"
+            className="landing-cta"
+          >
+            {copy.rev2.followStory}
+          </TextLink>
+          <TextLink
+            href={social.instagramHero}
+            newTab
+            arrow="green"
+            className="landing-cta"
+          >
+            {copy.rev2.instagram}
           </TextLink>
         </div>
 
