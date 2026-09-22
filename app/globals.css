@@ -1499,6 +1499,10 @@ body:has(.apply-page) .parked-iu26 {
     overflow: visible;
   }
 
+  .frame.crew {
+    padding-bottom: clamp(3rem, 9vh, 5rem);
+  }
+
   .rtb-dare-photo {
     flex: 1 1 auto;
     min-height: 42dvh;
@@ -1530,23 +1534,20 @@ body:has(.apply-page) .parked-iu26 {
   }
 
   .crew-title {
-    font-size: clamp(4.4rem, 22vw, 7.2rem);
+    font-size: clamp(2.8rem, 12vw, 4.6rem);
+    max-width: 12ch;
   }
 
   .crew-cards {
     order: 1;
     align-self: stretch;
     width: 100%;
-    padding: 0 var(--frame-inset) 1.4rem;
+    padding: 0 var(--frame-inset) 0.5rem;
     min-height: 12rem;
   }
 
   .crew-lanyard {
-    order: 2;
-    align-self: stretch;
-    width: 100%;
-    height: min(70dvh, 32rem);
-    min-height: 280px;
+    display: none;
   }
 }
 
@@ -1559,7 +1560,7 @@ body:has(.apply-page) .parked-iu26 {
   flex-direction: column;
   justify-content: flex-start;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   container-type: inline-size;
 }
 
@@ -1567,17 +1568,22 @@ body:has(.apply-page) .parked-iu26 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(4.8rem, 42cqi, 14rem);
-  line-height: 0.72;
+  font-size: clamp(2.6rem, 18cqi, 6.4rem);
+  line-height: 0.86;
   letter-spacing: 0;
   text-transform: uppercase;
+  max-width: 11ch;
 }
 
 .crew-body {
-  max-width: 28ch;
-  margin: 1.2rem 0 0;
+  max-width: 36ch;
+  margin: 1rem 0 0;
   font-size: 13px;
   line-height: 1.45;
+}
+
+.crew-body + .crew-body {
+  margin-top: 0.75rem;
 }
 
 .crew-cards {
@@ -1600,34 +1606,61 @@ body:has(.apply-page) .parked-iu26 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0.95rem 1.05rem;
+  padding: 0.75rem 0.9rem;
   background: var(--color-yellow);
   color: #000;
 }
 
 .crew-card-name {
   margin: 0;
-  font-size: clamp(1.05rem, 1.5vw, 1.45rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.35rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
-.crew-card-role,
-.crew-card-aka {
-  margin: 0.08rem 0 0;
-  font-size: clamp(0.82rem, 1.05vw, 1.02rem);
+.crew-card-role {
+  margin: 0.2rem 0 0;
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
   font-weight: 400;
   line-height: 1.25;
 }
 
+.crew-card-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.55rem;
+  font-size: clamp(0.75rem, 1vw, 0.92rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.crew-card-link:hover,
+.crew-card-link:focus-visible {
+  opacity: 0.75;
+}
+
 .crew-card-photo-wrap {
   position: relative;
+  display: block;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .crew-card-photo {
   object-fit: cover;
+  object-position: center 20%;
+}
+
+/* Third card sits alone on the second row — keep width matched to peers */
+.crew-cards .crew-card:nth-child(3) {
+  grid-column: 1 / 2;
 }
 
 .crew-lanyard {

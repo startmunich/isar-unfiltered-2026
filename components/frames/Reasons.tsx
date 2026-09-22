@@ -2,6 +2,7 @@ import Image from "next/image";
 import { copy, social } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
+import { Crew } from "@/components/frames/Crew";
 
 export function Reasons() {
   return (
@@ -42,6 +43,8 @@ export function Reasons() {
           </p>
         </div>
       </section>
+
+      <Crew />
     </div>
   );
 }

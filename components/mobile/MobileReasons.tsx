@@ -3,6 +3,7 @@ import { copy, social } from "@/lib/copy";
 import { photos } from "@/lib/media";
 import { TextLink } from "@/components/ui/TextLink";
 import { MobileReveal } from "@/components/mobile/MobileReveal";
+import { Crew } from "@/components/frames/Crew";
 
 export function MobileReasons() {
   return (
@@ -49,6 +50,8 @@ export function MobileReasons() {
           </p>
         </MobileReveal>
       </section>
+
+      <Crew />
     </div>
   );
 }

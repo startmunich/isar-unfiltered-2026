@@ -85,6 +85,41 @@ export const copy = {
         body: "100 carefully chosen people. Four days in Munich. No polished pitch required. What matters is what you're actually working on, what problem you're chasing, and why you care enough to do something about it.",
       },
     },
+    crew: {
+      title: "THE PEOPLE BEHIND IU",
+      body: [
+        "A few slightly crazy people from START Munich decided to do this again. This is the core crew behind ISAR Unfiltered. Not everyone who helped make IU26 happen, because honestly, that list would be way too long.",
+        "If you have a question, want to know who’s behind something, or just want to say hi, find the person you’re looking for and reach out.",
+      ] as const,
+      hint: "Drag me",
+      linkedinCta: "LinkedIn",
+      cards: [
+        {
+          name: "Fabi",
+          role: "makes the whole thing happen",
+          href: withUtm(
+            "https://www.linkedin.com/in/fabian-rieth/",
+            "crew_fabi",
+          ),
+        },
+        {
+          name: "Ali",
+          role: "makes IU look like IU",
+          href: withUtm(
+            "https://www.linkedin.com/in/alihajihashemi/",
+            "crew_ali",
+          ),
+        },
+        {
+          name: "Chris",
+          role: "makes the event happen",
+          href: withUtm(
+            "https://www.linkedin.com/in/christopher-hassinger/",
+            "crew_chris",
+          ),
+        },
+      ],
+    },
     lookback: {
       title: ["LAST TIME,", "UNFILTERED"] as const,
     },

@@ -35,6 +35,10 @@ export const photos = {
     src: "/images/crew-ali.jpg",
     alt: "Ali resting backstage in an ISAR UNFILTERED shirt",
   },
+  crewChris: {
+    src: "/images/crew-chris.jpg",
+    alt: "Chris in an ISAR UNFILTERED shirt",
+  },
   crewFabi: {
     src: "/images/crew-fabi.jpg",
     alt: "Fabi in an ISAR UNFILTERED shirt",

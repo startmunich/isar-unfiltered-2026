@@ -65,6 +65,8 @@ export function MobileProgramDays() {
                                 href={slot.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                onPointerDown={(e) => e.stopPropagation()}
                               >
                                 {"cta" in slot && slot.cta
                                   ? slot.cta
