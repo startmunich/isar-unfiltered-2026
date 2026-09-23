@@ -227,7 +227,7 @@ export const copy = {
         },
         {
           when: "Mon 28 Sep, 13:00–16:00",
-          where: "Room 3 (Ground Floor)",
+          where: "Bits & Pretzels, Room 3 (ground floor)",
           format: "Microcircles",
           length: "3h",
         },
@@ -248,7 +248,7 @@ export const copy = {
         },
         {
           when: "Tue 29 Sep, 13:00–16:00",
-          where: "Room 3 (Ground Floor)",
+          where: "Bits & Pretzels, Room 3 (ground floor)",
           format: "Microcircles",
           length: "3h",
         },
