@@ -208,7 +208,7 @@ export const copy = {
       slots: [
         {
           when: "Sun 27 Sep, 18:00–21:00",
-          where: "Location TBA",
+          where: "1KOMMA5° Showroom, Pacellistraße 2",
           format: "Pre-Event",
           length: "3h",
         },
@@ -221,13 +221,13 @@ export const copy = {
       slots: [
         {
           when: "Mon 28 Sep, 08:30–10:00",
-          where: "Location TBA",
+          where: "Bits & Pretzels Bavaria Lounge",
           format: "Onsite Session",
           length: "1.5h",
         },
         {
           when: "Mon 28 Sep, 13:00–16:00",
-          where: "Location TBA",
+          where: "Room 3 (Ground Floor)",
           format: "Microcircles",
           length: "3h",
         },
@@ -240,7 +240,7 @@ export const copy = {
       slots: [
         {
           when: "Tue 29 Sep, 09:00–11:00",
-          where: "LAP Coffee, Glockenbach",
+          where: "LAP Coffee, Fraunhoferstraße 41",
           format: "5K Run",
           length: "2h",
           href: social.luma5k,
@@ -248,7 +248,7 @@ export const copy = {
         },
         {
           when: "Tue 29 Sep, 13:00–16:00",
-          where: "Location TBA",
+          where: "Room 3 (Ground Floor)",
           format: "Microcircles",
           length: "3h",
         },
