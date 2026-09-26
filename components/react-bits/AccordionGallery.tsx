@@ -21,6 +21,7 @@ export type AccordionItem = {
     where: string;
     format: string;
     length: string;
+    detail?: string;
     href?: string;
     cta?: string;
   }>;
@@ -295,6 +296,9 @@ export default function AccordionGallery({
                         <span>{slot.when}</span>
                         <span>{slot.where}</span>
                         <span>{slot.length}</span>
+                        {slot.detail ? (
+                          <span className="ag-slot-detail">{slot.detail}</span>
+                        ) : null}
                         {slot.href ? (
                           <a
                             className="ag-slot-link"

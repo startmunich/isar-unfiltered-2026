@@ -418,6 +418,12 @@
     opacity: 0.75;
   }
 
+  .m-day-slot-detail {
+    margin: 0.45rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
   .m-day-slot-link {
     display: inline-flex;
     align-items: center;

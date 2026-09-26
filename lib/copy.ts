@@ -32,6 +32,7 @@ export type ProgramSlot = {
   where: string;
   format: string;
   length: string;
+  detail?: string;
   href?: string;
   cta?: string;
 };
@@ -204,45 +205,50 @@ export const copy = {
     {
       n: "0",
       date: "27/09",
-      body: "The first chance to meet the room before the main days begin.",
+      body: "A drink before Bits starts. Meet the room.",
       slots: [
         {
           when: "Sun 27 Sep, 18:00–21:00",
           where: "1KOMMA5° Showroom, Pacellistraße 2",
           format: "Pre-Event",
           length: "3h",
+          detail: "A drink and a first look at the room before Bits kicks off.",
         },
       ] satisfies readonly ProgramSlot[],
     },
     {
       n: "1",
       date: "28/09",
-      body: "Start the week together, get oriented, and dig into small-group conversations with people who have actually built.",
+      body: "Founders who’ve been there, then small groups that actually go somewhere.",
       slots: [
         {
           when: "Mon 28 Sep, 08:30–10:00",
-          where: "Bits & Pretzels Bavaria Lounge",
-          format: "Onsite Session",
+          where: "Bavaria Lounge (Bits & Pretzels)",
+          format: "Inspiration Sessions",
           length: "1.5h",
+          detail: "An unfiltered chat with founders — bring your questions.",
         },
         {
           when: "Mon 28 Sep, 13:00–16:00",
           where: "Bits & Pretzels, Room 3 (ground floor)",
           format: "Microcircles",
           length: "3h",
+          detail:
+            "Small-group sessions with founders and operators on core topics.",
         },
       ] satisfies readonly ProgramSlot[],
     },
     {
       n: "2",
       date: "29/09",
-      body: "Start outside, keep the conversations going, then pull Munich's student initiatives into one room.",
+      body: "Run first. Then Microcircles. Then Munich’s student initiatives in one room.",
       slots: [
         {
           when: "Tue 29 Sep, 09:00–11:00",
           where: "LAP Coffee, Fraunhoferstraße 41",
           format: "5K Run",
           length: "2h",
+          detail: "A 5K at your own pace, then coffee at LAP.",
           href: social.luma5k,
           cta: "Register",
         },
@@ -251,12 +257,16 @@ export const copy = {
           where: "Bits & Pretzels, Room 3 (ground floor)",
           format: "Microcircles",
           length: "3h",
+          detail:
+            "Small-group sessions with founders and operators on core topics.",
         },
         {
           when: "Tue 29 Sep, 18:00–22:00",
           where: "1KOMMA5° Showroom, Pacellistraße 2",
-          format: "Isar & Co. — Student Initiative Gathering",
+          format: "Isar & Co. with Andreas Klinger",
           length: "4h",
+          detail:
+            "Munich’s student initiatives and builders — with Andreas Klinger from 18:00–19:00.",
           href: social.lumaIsarAndCo,
           cta: "Register",
         },

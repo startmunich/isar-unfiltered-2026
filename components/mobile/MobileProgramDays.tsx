@@ -59,6 +59,9 @@ export function MobileProgramDays() {
                             <p className="m-day-slot-when">{slot.when}</p>
                             <p className="m-day-slot-where">{slot.where}</p>
                             <p className="m-day-slot-length">{slot.length}</p>
+                            {"detail" in slot && slot.detail ? (
+                              <p className="m-day-slot-detail">{slot.detail}</p>
+                            ) : null}
                             {"href" in slot && slot.href ? (
                               <a
                                 className="m-day-slot-link"

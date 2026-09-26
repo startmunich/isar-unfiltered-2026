@@ -276,6 +276,14 @@
   opacity: 0.88;
 }
 
+.ag-slot-detail {
+  margin-top: 0.35rem;
+  max-width: 42ch;
+  font-size: clamp(0.72rem, 0.9vw, 0.84rem);
+  line-height: 1.4;
+  opacity: 0.92;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ag-panel,
   .ag-panel-media {
